@@ -1,0 +1,71 @@
+//
+//  Array+Tests.swift
+//  SwiftCommons
+//
+//  Created by Yusuke on 8/24/15.
+//  Copyright © 2015 Yusuke. All rights reserved.
+//
+
+import XCTest
+
+class Array_Tests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func test_inits() {
+        XCTAssertEqual([], [0].inits()) // conforms to Haskell
+        XCTAssertEqual([0, 1, 2, 3], [0, 1, 2, 3, 4].inits())
+    }
+    
+    func test_tail() {
+        XCTAssertEqual([], [0].tail()) // conforms to Haskell
+        XCTAssertEqual([1, 2, 3, 4], [0, 1, 2, 3, 4].tail())
+    }
+    
+    func test_take() {
+        
+        // empty
+        let empty = [Int]()
+        XCTAssertEqual([], empty.take(3))
+        
+        // middle
+        let array = Array(0..<5)
+        XCTAssertEqual([0, 1, 2], array.take(3))
+        
+        // max
+        XCTAssertEqual([0, 1, 2, 3, 4], array.take(5))
+        
+        // over
+        XCTAssertEqual([0, 1, 2, 3, 4], array.take(6))
+    }
+    
+    func test_drop() {
+        XCTAssertEqual([0, 1, 2, 3, 4].drop(0), [0, 1, 2, 3, 4])
+        XCTAssertEqual([0, 1, 2, 3, 4].drop(4), [4])
+        XCTAssertEqual([0, 1, 2, 3, 4].drop(5), [])
+    }
+    
+    func test_foreach() {
+        
+        let s1 = NSMutableString(string: "1")
+        let s2 = NSMutableString(string: "2")
+        let array = [s1, s2]
+        
+        // append ! for all elements
+        array.forEach{ $0.appendString("!") }
+        
+        XCTAssertEqual("1!", s1)
+        XCTAssertEqual("2!", s2)
+    }
+    
+    func test_reduce1() {
+        XCTAssertEqual([0].reduce1{ $0 + $1 }, 0)
+        XCTAssertEqual([0, 1, 2, 3, 4].reduce1{ $0 + $1 }, 10)
+    }
+}
