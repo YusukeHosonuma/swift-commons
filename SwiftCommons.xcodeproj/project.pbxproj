@@ -12,6 +12,9 @@
 		708E18E21B8B50E400B11067 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18E11B8B50E400B11067 /* Array+.swift */; };
 		708E18E41B8B518000B11067 /* Array+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18E31B8B518000B11067 /* Array+Tests.swift */; };
 		708E18E51B8B557A00B11067 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18E11B8B50E400B11067 /* Array+.swift */; };
+		708E18EB1B8B6E5200B11067 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EA1B8B6E5200B11067 /* String+.swift */; };
+		708E18EC1B8B71EF00B11067 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EA1B8B6E5200B11067 /* String+.swift */; };
+		708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18ED1B8B722800B11067 /* String+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,8 @@
 		7077E5401B44111F00E3BBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		708E18E11B8B50E400B11067 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		708E18E31B8B518000B11067 /* Array+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Tests.swift"; sourceTree = "<group>"; };
+		708E18EA1B8B6E5200B11067 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		708E18ED1B8B722800B11067 /* String+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +82,7 @@
 				7077E5341B44111F00E3BBED /* SwiftCommons.h */,
 				7077E5321B44111F00E3BBED /* Supporting Files */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
+				708E18EA1B8B6E5200B11067 /* String+.swift */,
 			);
 			path = SwiftCommons;
 			sourceTree = "<group>";
@@ -94,6 +100,7 @@
 			children = (
 				7077E53F1B44111F00E3BBED /* Supporting Files */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
+				708E18ED1B8B722800B11067 /* String+Tests.swift */,
 			);
 			path = SwiftCommonsTests;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				708E18E21B8B50E400B11067 /* Array+.swift in Sources */,
+				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				708E18E51B8B557A00B11067 /* Array+.swift in Sources */,
+				708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */,
+				708E18EC1B8B71EF00B11067 /* String+.swift in Sources */,
 				708E18E41B8B518000B11067 /* Array+Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
