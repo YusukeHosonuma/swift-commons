@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		705E8E201B8B7E8D004743AB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EF1B8B769C00B11067 /* UIColor+.swift */; };
 		7077E5351B44111F00E3BBED /* SwiftCommons.h in Headers */ = {isa = PBXBuildFile; fileRef = 7077E5341B44111F00E3BBED /* SwiftCommons.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7077E53B1B44111F00E3BBED /* SwiftCommons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7077E52F1B44111F00E3BBED /* SwiftCommons.framework */; };
 		708E18E21B8B50E400B11067 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18E11B8B50E400B11067 /* Array+.swift */; };
@@ -15,6 +16,8 @@
 		708E18EB1B8B6E5200B11067 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EA1B8B6E5200B11067 /* String+.swift */; };
 		708E18EC1B8B71EF00B11067 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EA1B8B6E5200B11067 /* String+.swift */; };
 		708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18ED1B8B722800B11067 /* String+Tests.swift */; };
+		708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EF1B8B769C00B11067 /* UIColor+.swift */; };
+		70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 		708E18E31B8B518000B11067 /* Array+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Tests.swift"; sourceTree = "<group>"; };
 		708E18EA1B8B6E5200B11067 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		708E18ED1B8B722800B11067 /* String+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Tests.swift"; sourceTree = "<group>"; };
+		708E18EF1B8B769C00B11067 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 				7077E5321B44111F00E3BBED /* Supporting Files */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
+				708E18EF1B8B769C00B11067 /* UIColor+.swift */,
 			);
 			path = SwiftCommons;
 			sourceTree = "<group>";
@@ -101,6 +107,7 @@
 				7077E53F1B44111F00E3BBED /* Supporting Files */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				708E18ED1B8B722800B11067 /* String+Tests.swift */,
+				70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */,
 			);
 			path = SwiftCommonsTests;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 			files = (
 				708E18E21B8B50E400B11067 /* Array+.swift in Sources */,
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
+				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				708E18E51B8B557A00B11067 /* Array+.swift in Sources */,
+				70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */,
 				708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */,
 				708E18EC1B8B71EF00B11067 /* String+.swift in Sources */,
 				708E18E41B8B518000B11067 /* Array+Tests.swift in Sources */,
+				705E8E201B8B7E8D004743AB /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
