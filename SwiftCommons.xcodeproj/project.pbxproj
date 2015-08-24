@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D02A1B8B8A1E00D5C982 /* Functions.swift */; };
+		7025D02C1B8B8A2200D5C982 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D02A1B8B8A1E00D5C982 /* Functions.swift */; };
+		7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */; };
 		705E8E201B8B7E8D004743AB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EF1B8B769C00B11067 /* UIColor+.swift */; };
 		7077E5351B44111F00E3BBED /* SwiftCommons.h in Headers */ = {isa = PBXBuildFile; fileRef = 7077E5341B44111F00E3BBED /* SwiftCommons.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7077E53B1B44111F00E3BBED /* SwiftCommons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7077E52F1B44111F00E3BBED /* SwiftCommons.framework */; };
@@ -31,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7025D02A1B8B8A1E00D5C982 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		7077E52F1B44111F00E3BBED /* SwiftCommons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7077E5331B44111F00E3BBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7077E5341B44111F00E3BBED /* SwiftCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommons.h; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
 				708E18EF1B8B769C00B11067 /* UIColor+.swift */,
+				7025D02A1B8B8A1E00D5C982 /* Functions.swift */,
 			);
 			path = SwiftCommons;
 			sourceTree = "<group>";
@@ -108,6 +114,7 @@
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				708E18ED1B8B722800B11067 /* String+Tests.swift */,
 				70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */,
+				7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */,
 			);
 			path = SwiftCommonsTests;
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 				708E18E21B8B50E400B11067 /* Array+.swift in Sources */,
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
+				7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +249,8 @@
 				708E18E51B8B557A00B11067 /* Array+.swift in Sources */,
 				70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */,
 				708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */,
+				7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */,
+				7025D02C1B8B8A2200D5C982 /* Functions.swift in Sources */,
 				708E18EC1B8B71EF00B11067 /* String+.swift in Sources */,
 				708E18E41B8B518000B11067 /* Array+Tests.swift in Sources */,
 				705E8E201B8B7E8D004743AB /* UIColor+.swift in Sources */,
