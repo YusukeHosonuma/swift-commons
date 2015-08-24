@@ -20,4 +20,9 @@ extension String {
         let end   = advance(self.startIndex, range.endIndex)
         return self.substringWithRange(Range<Index>(start: start, end: end))
     }
+    
+    func length() -> Int { // Obj-C compatible
+        let string: NSString = self
+        return string.length
+    }
 }

@@ -43,4 +43,8 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("Hello"[1..<5], "ello")
         XCTAssertEqual("Hello"[0..<5], "Hello")
     }
+    
+    func test_length() {
+        XCTAssertEqual("Hello".length(), 5)
+    }
 }
