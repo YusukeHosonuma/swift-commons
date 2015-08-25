@@ -11,14 +11,14 @@ import Foundation
 extension String {
     
     subscript(i: Int) -> String {
-        let range = Range<String.Index>(start: advance(self.startIndex, i), end: advance(self.startIndex, i + 1))
-        return self.substringWithRange(range)
+        let range = Range<String.Index>(start: startIndex.advancedBy(i), end: startIndex.advancedBy(i + 1))
+        return substringWithRange(range)
     }
     
     subscript(range: Range<Int>) -> String {
-        let start = advance(self.startIndex, range.startIndex)
-        let end   = advance(self.startIndex, range.endIndex)
-        return self.substringWithRange(Range<Index>(start: start, end: end))
+        let start = startIndex.advancedBy(range.startIndex)
+        let end   = startIndex.advancedBy(range.endIndex)
+        return substringWithRange(Range<Index>(start: start, end: end))
     }
     
     func length() -> Int { // Obj-C compatible
