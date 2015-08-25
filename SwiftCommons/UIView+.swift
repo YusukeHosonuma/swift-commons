@@ -44,4 +44,16 @@ extension UIView {
     var bottom: CGFloat {
         return y + height
     }
+    
+    func findView(matchView: (view: UIView) -> Bool) -> UIView? {
+        for view in subviews {
+            if matchView(view: view) {
+                return view
+            }
+            if let found = view.findView(matchView) {
+                return found
+            }
+        }
+        return nil
+    }
 }

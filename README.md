@@ -21,7 +21,7 @@ Swift commons library.
 - `subscript(range: Range<Int>) -> String`
 - `length() -> Int`
 
-# UIKit
+# UIKit extensions
 
 ## UIColor
 - `fromHex(hex: String) -> UIColor?`
@@ -35,3 +35,4 @@ Swift commons library.
 - `height: CGFloat`
 - `right: CGFloat`
 - `bottom: CGFloat`
+- `findView(:(:UIView) -> Bool) -> UIView?`

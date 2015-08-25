@@ -43,4 +43,50 @@ class UIView_Tests: XCTestCase {
         XCTAssertEqual(10.0, view.x)
         XCTAssertEqual(20.0, view.y)
     }
+    
+    func test_find() {
+        
+        // + 1
+        //   + 11
+        //   + 12
+        //     + 121
+        //     + 122
+        let view1   = createView(tag: 1)
+
+        let view11  = createView(tag: 11)
+        let view12  = createView(tag: 12)
+        view1.addSubview(view11)
+        view1.addSubview(view12)
+        
+        let view121 = createView(tag: 121)
+        let view122 = createView(tag: 122)
+        view12.addSubview(view121)
+        view12.addSubview(view122)
+        
+        var found: UIView?
+        
+        // find tag = 11
+        found = view1.findView{ $0.tag == 11 }
+        XCTAssertTrue(found === view11)
+        
+        // find tag = 12
+        found = view1.findView{ $0.tag == 12 }
+        XCTAssertTrue(found === view12)
+        
+        // find tag = 121
+        found = view1.findView{ $0.tag == 121 }
+        XCTAssertTrue(found === view121)
+        
+        // find tag = 122
+        found = view1.findView{ $0.tag == 122 }
+        XCTAssertTrue(found === view122)
+    }
+    
+    // MARK: - Helper
+    
+    func createView(tag tag: Int) -> UIView {
+        let view = UIView()
+        view.tag = tag
+        return view
+    }
 }
