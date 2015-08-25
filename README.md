@@ -2,18 +2,19 @@
 Swift commons library.
 
 # Global functions
-- isEven()
-- isOdd()
+- isEven(:Int) -> Bool
+- isOdd(:Int) -> Bool
+- ngt(:Int) -> Int
 
 # Foundation extensions
 
 ## Array
 - inits() -> Array
 - tail() -> Array
-- take(n: Int) -> Array
-- drop(n: Int) -> Array
-- forEach(f: Element -())
-- reduce1(f: (a: Element, b: Element) -> Element) -> Element
+- take(:Int) -> Array
+- drop(:Int) -> Array
+- forEach(:Element -> ())
+- reduce1(:(a: Element, b: Element) -> Element) -> Element
 
 ## String
 - subscript(i: Int) -> String
@@ -24,3 +25,13 @@ Swift commons library.
 
 ## UIColor
 - fromHex(hex: String) -> UIColor?
+
+## UIView
+- += (:CGFloat, :CGFloat)
+- -= (:CGFloat, :CGFloat)
+- x: CGFloat
+- y: CGFloat
+- width: CGFloat
+- height: CGFloat
+- right: CGFloat
+- bottom: CGFloat
