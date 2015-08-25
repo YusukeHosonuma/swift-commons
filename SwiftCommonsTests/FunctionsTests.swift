@@ -36,4 +36,10 @@ class FunctionsTests: XCTestCase {
         XCTAssertFalse(isEven(3))
         XCTAssertFalse(isEven(5))
     }
+    
+    func test_ngt() {
+
+        XCTAssertEqual(-2, ngt(2))
+        XCTAssertEqual(2, ngt(-2))
+    }
 }

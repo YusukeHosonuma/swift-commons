@@ -15,3 +15,7 @@ func isEven(x: Int) -> Bool {
 func isOdd(x: Int) -> Bool {
     return !isEven(x)
 }
+
+func ngt(x: Int) -> Int {
+    return -x
+}
