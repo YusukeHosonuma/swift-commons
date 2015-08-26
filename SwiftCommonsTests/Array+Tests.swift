@@ -17,7 +17,21 @@ class Array_Tests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
+    
+    func test_subscript_orNil_get() {
+        
+        let array = [0, 1, 2]
+        XCTAssertNil(array[orNil: -1])
+        XCTAssertNil(array[orNil: 3])
+        
+        XCTAssertEqual(array[orNil: 0]!, 0)
+        XCTAssertEqual(array[orNil: 1]!, 1)
+        XCTAssertEqual(array[orNil: 2]!, 2)
+        
+        let emptyArray: [Int] = []
+        XCTAssertNil(emptyArray[orNil: 0])
+    }
+    
     func test_inits() {
         XCTAssertEqual([], [0].inits()) // conforms to Haskell
         XCTAssertEqual([0, 1, 2, 3], [0, 1, 2, 3, 4].inits())

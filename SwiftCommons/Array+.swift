@@ -10,6 +10,10 @@ import Foundation
 
 extension Array {
     
+    subscript(orNil index: Int) -> Element? {
+        return (index < 0 || count <= index) ? nil : self[index]
+    }
+    
     func inits() -> Array {
         return Array(self[0..<(count - 1)])
     }

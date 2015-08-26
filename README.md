@@ -9,6 +9,7 @@ Swift commons library.
 # Foundation extensions
 
 ## Array
+- `subscript(orNil index: Int) -> Element`
 - `inits() -> Array`
 - `tail() -> Array`
 - `take(:Int) -> Array`
