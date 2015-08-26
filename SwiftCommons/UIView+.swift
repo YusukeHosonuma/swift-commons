@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-func += (left: UIView, right: (x: CGFloat, y: CGFloat)) {
+func += (left: UIView, right: CGPoint) {
     left.frame.origin.x += right.x
     left.frame.origin.y += right.y
 }
 
-func -= (left: UIView, right: (x: CGFloat, y: CGFloat)) {
+func -= (left: UIView, right: CGPoint) {
     left.frame.origin.x -= right.x
     left.frame.origin.y -= right.y
 }

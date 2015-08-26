@@ -34,12 +34,12 @@ class UIView_Tests: XCTestCase {
         let view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
         
         // +=
-        view += (5.0, 15.0)
+        view += CGPoint(x: 5.0, y: 15.0)
         XCTAssertEqual(15.0, view.x)
         XCTAssertEqual(35.0, view.y)
 
         // -=
-        view -= (5.0, 15.0)
+        view -= CGPoint(x: 5.0, y: 15.0)
         XCTAssertEqual(10.0, view.x)
         XCTAssertEqual(20.0, view.y)
     }
