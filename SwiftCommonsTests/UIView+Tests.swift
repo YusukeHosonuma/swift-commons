@@ -37,11 +37,26 @@ class UIView_Tests: XCTestCase {
         view += CGPoint(x: 5.0, y: 15.0)
         XCTAssertEqual(15.0, view.x)
         XCTAssertEqual(35.0, view.y)
-
+        
         // -=
         view -= CGPoint(x: 5.0, y: 15.0)
         XCTAssertEqual(10.0, view.x)
         XCTAssertEqual(20.0, view.y)
+    }
+    
+    func test_resize() {
+        
+        let view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
+        
+        // +=
+        view += CGSize(width: 5.0, height: 15.0)
+        XCTAssertEqual(45.0, view.width)
+        XCTAssertEqual(95.0, view.height)
+        
+        // -=
+        view -= CGSize(width: 5.0, height: 15.0)
+        XCTAssertEqual(40.0, view.width)
+        XCTAssertEqual(80.0, view.height)
     }
     
     func test_find() {

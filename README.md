@@ -27,8 +27,10 @@ Swift commons library.
 - `fromHex(hex: String) -> UIColor?`
 
 ## UIView
-- `+= (:CGFloat, :CGFloat)`
-- `-= (:CGFloat, :CGFloat)`
+- `+= CGPoint`
+- `-= CGPoint`
+- `+= CGSize`
+- `-= CGSize`
 - `x: CGFloat`
 - `y: CGFloat`
 - `width: CGFloat`

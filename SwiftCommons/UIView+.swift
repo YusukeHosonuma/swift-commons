@@ -19,6 +19,16 @@ func -= (left: UIView, right: CGPoint) {
     left.frame.origin.y -= right.y
 }
 
+func += (left: UIView, right: CGSize) {
+    left.frame.size.width  += right.width
+    left.frame.size.height += right.height
+}
+
+func -= (left: UIView, right: CGSize) {
+    left.frame.size.width  -= right.width
+    left.frame.size.height -= right.height
+}
+
 extension UIView {
     
     var x: CGFloat {
