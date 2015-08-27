@@ -152,12 +152,4 @@ class UIView_Tests: XCTestCase {
         XCTAssertEqual(3, view121.tag)
         XCTAssertEqual(3, view122.tag)
     }
-    
-    // MARK: - Helper
-    
-    func createView(tag tag: Int) -> UIView {
-        let view = UIView()
-        view.tag = tag
-        return view
-    }
 }
