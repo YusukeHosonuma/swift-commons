@@ -1,49 +1,65 @@
 # SwiftCommons
-Swift commons library.
+Simple helper swift extensions for easily development.
 
-# Global functions
-- `isEven(:Int) -> Bool`
-- `isOdd(:Int) -> Bool`
-- `ngt(:Int) -> Int`
+## Installation
+Copy all the files from the SwiftCommons/Classes folder to your project.
 
-# Foundation extensions
+## APIs
 
-## Array
-- `subscript(orNil index: Int) -> Element`
-- `inits() -> Array`
-- `tail() -> Array`
-- `take(:Int) -> Array`
-- `drop(:Int) -> Array`
-- `forEach(:Element -> ())`
-- `reduce1(:(a: Element, b: Element) -> Element) -> Element`
+### Global functions
+* `isEven(:Int) -> Bool`
+* `isOdd(:Int) -> Bool`
+* `ngt(:Int) -> Int`
 
-## String
-- `subscript(i: Int) -> String`
-- `subscript(range: Range<Int>) -> String`
-- `length() -> Int`
-- `urlEncode() -> String`
-- `urlDecode() -> String`
+### Foundation extensions
 
-# UIKit extensions
+#### Array
+* `subscript(orNil index: Int) -> Element?`
+* `inits() -> Array`
+* `tail() -> Array`
+* `take(:Int) -> Array`
+* `drop(:Int) -> Array`
+* `forEach(:Element -> ())`
+* `reduce1(:(a: Element, b: Element) -> Element) -> Element`
 
-## UIColor
-- `fromHex(hex: String) -> UIColor?`
+#### String
+* `subscript(i: Int) -> String`
+* `subscript(range: Range<Int>) -> String`
+* `length() -> Int`
+* `urlEncode() -> String`
+* `urlDecode() -> String`
 
-## UIView
-- `+= CGPoint`
-- `-= CGPoint`
-- `+= CGSize`
-- `-= CGSize`
-- `x: CGFloat`
-- `y: CGFloat`
-- `width: CGFloat`
-- `height: CGFloat`
-- `right: CGFloat`
-- `bottom: CGFloat`
-- `findView(:(:UIView) -> Bool) -> UIView?`
-- `findViews(f: (view: UIView) -> Bool) -> [UIView]`
-- `applyAllSubviews(f: (view: UIView) -> ())`
-- `applyAllViews(f: (view: UIView) -> ())`
+### UIKit extensions
 
-## UIViewController
-- `exclusiveTouches()`
+#### UIColor
+* `fromHex(hex: String) -> UIColor?`
+
+#### UIView
+* `+= CGPoint`
+* `-= CGPoint`
+* `+= CGSize`
+* `-= CGSize`
+* `x: CGFloat`
+* `y: CGFloat`
+* `width: CGFloat`
+* `height: CGFloat`
+* `right: CGFloat`
+* `bottom: CGFloat`
+* `findView(:(:UIView) -> Bool) -> UIView?`
+* `findViews(f: (view: UIView) -> Bool) -> [UIView]`
+* `applyAllSubviews(f: (view: UIView) -> ())`
+* `applyAllViews(f: (view: UIView) -> ())`
+
+#### UIViewController
+* `exclusiveTouches()`
+
+## Requirements
+
+Swift 2.0 / iOS 8.0+
+
+## License
+
+The MIT License. See LICENSE for details.
+
+===========
+[@tobi462](https://twitter.com/tobi462), August 2015.
