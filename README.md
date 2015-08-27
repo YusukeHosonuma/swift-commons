@@ -21,6 +21,8 @@ Swift commons library.
 - `subscript(i: Int) -> String`
 - `subscript(range: Range<Int>) -> String`
 - `length() -> Int`
+- `urlEncode() -> String`
+- `urlDecode() -> String`
 
 # UIKit extensions
 

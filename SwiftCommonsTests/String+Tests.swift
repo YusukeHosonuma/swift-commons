@@ -48,4 +48,15 @@ class String_Tests: XCTestCase {
     func test_length() {
         XCTAssertEqual("Hello".length(), 5)
     }
+    
+    func test_urlEncode_urlDecode() {
+        
+        let string = "http://hogehoge.com/?param=!*'();:@&=+$,/?%#[]"
+        
+        let encodedString = string.urlEncode()
+        XCTAssertEqual("http%3A%2F%2Fhogehoge%2Ecom%2F%3Fparam%3D%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%25%23%5B%5D", encodedString)
+        
+        let decodedString = encodedString.urlDecode()
+        XCTAssertEqual(string, decodedString)
+    }
 }

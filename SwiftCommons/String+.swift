@@ -25,4 +25,12 @@ extension String {
         let string: NSString = self
         return string.length
     }
+    
+    func urlEncode() -> String {
+        return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
+    }
+    
+    func urlDecode() -> String {
+        return stringByRemovingPercentEncoding!
+    }
 }
