@@ -66,4 +66,16 @@ extension UIView {
         }
         return nil
     }
+    
+    func applyAllSubviews(f: (view: UIView) -> ()) {
+        for view in subviews {
+            f(view: view)
+            view.applyAllSubviews(f)
+        }
+    }
+    
+    func applyAllViews(f: (view: UIView) -> ()) {
+        f(view: self)
+        applyAllSubviews(f)
+    }
 }

@@ -97,6 +97,62 @@ class UIView_Tests: XCTestCase {
         XCTAssertTrue(found === view122)
     }
     
+    func test_applyAllSubviews() {
+        
+        // + 1
+        //   + 11
+        //   + 12
+        //     + 121
+        //     + 122
+        let view1   = createView(tag: 1)
+        
+        let view11  = createView(tag: 11)
+        let view12  = createView(tag: 12)
+        view1.addSubview(view11)
+        view1.addSubview(view12)
+        
+        let view121 = createView(tag: 121)
+        let view122 = createView(tag: 122)
+        view12.addSubview(view121)
+        view12.addSubview(view122)
+        
+        view1.applyAllSubviews { (view: UIView) -> () in view.tag = 3 }
+        
+        XCTAssertEqual(1, view1.tag)
+        XCTAssertEqual(3, view11.tag)
+        XCTAssertEqual(3, view12.tag)
+        XCTAssertEqual(3, view121.tag)
+        XCTAssertEqual(3, view122.tag)
+    }
+    
+    func test_applyAllViews() {
+        
+        // + 1
+        //   + 11
+        //   + 12
+        //     + 121
+        //     + 122
+        let view1   = createView(tag: 1)
+        
+        let view11  = createView(tag: 11)
+        let view12  = createView(tag: 12)
+        view1.addSubview(view11)
+        view1.addSubview(view12)
+        
+        let view121 = createView(tag: 121)
+        let view122 = createView(tag: 122)
+        view12.addSubview(view121)
+        view12.addSubview(view122)
+        
+        view1.applyAllViews { (view: UIView) -> () in view.tag = 3 }
+        
+        XCTAssertEqual(3, view1.tag)
+        XCTAssertEqual(3, view11.tag)
+        XCTAssertEqual(3, view12.tag)
+        XCTAssertEqual(3, view121.tag)
+        XCTAssertEqual(3, view122.tag)
+    }
+    
     // MARK: - Helper
     
     func createView(tag tag: Int) -> UIView {
