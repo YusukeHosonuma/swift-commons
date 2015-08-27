@@ -39,3 +39,9 @@ Swift commons library.
 - `right: CGFloat`
 - `bottom: CGFloat`
 - `findView(:(:UIView) -> Bool) -> UIView?`
+- `findViews(f: (view: UIView) -> Bool) -> [UIView]`
+- `applyAllSubviews(f: (view: UIView) -> ())`
+- `applyAllViews(f: (view: UIView) -> ())`
+
+## UIViewController
+- `exclusiveTouches()`
