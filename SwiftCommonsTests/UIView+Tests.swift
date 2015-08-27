@@ -60,7 +60,7 @@ class UIView_Tests: XCTestCase {
         XCTAssertEqual(80.0, view.height)
     }
     
-    func test_find() {
+    func test_findView() {
         
         // + 1
         //   + 11
@@ -96,6 +96,40 @@ class UIView_Tests: XCTestCase {
         // find tag = 122
         found = view1.findView{ $0.tag == 122 }
         XCTAssertTrue(found === view122)
+    }
+    
+    func test_findViews() {
+        
+        // + 1
+        //   + 11
+        //   + 12
+        //     + 121
+        //     + 122
+        let view1   = createView(tag: 1)
+        
+        let view11  = createView(tag: 11)
+        let view12  = createView(tag: 12)
+        view1.addSubview(view11)
+        view1.addSubview(view12)
+        
+        let view121 = createView(tag: 121)
+        let view122 = createView(tag: 122)
+        view12.addSubview(view121)
+        view12.addSubview(view122)
+        
+        var founds: [UIView]
+        
+        // find odd tag
+        founds = view1.findViews { isOdd($0.tag) }
+        XCTAssertEqual(2, founds.count)
+        XCTAssertTrue(founds[orNil: 0] == view11)
+        XCTAssertTrue(founds[orNil: 1] == view121)
+        
+        // find even tag
+        founds = view1.findViews { isEven($0.tag) }
+        XCTAssertEqual(2, founds.count)
+        XCTAssertTrue(founds[orNil: 0] == view12)
+        XCTAssertTrue(founds[orNil: 1] == view122)
     }
     
     func test_applyAllSubviews() {

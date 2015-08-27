@@ -67,6 +67,17 @@ extension UIView {
         return nil
     }
     
+    func findViews(f: (view: UIView) -> Bool) -> [UIView] {
+        var founds = [UIView]()
+        for view in subviews {
+            if f(view: view) {
+                founds.append(view)
+            }
+            founds += view.findViews(f)
+        }
+        return founds
+    }
+    
     func applyAllSubviews(f: (view: UIView) -> ()) {
         for view in subviews {
             f(view: view)
