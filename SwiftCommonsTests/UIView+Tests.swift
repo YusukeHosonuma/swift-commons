@@ -11,8 +11,31 @@ import XCTest
 
 class UIView_Tests: XCTestCase {
 
+    // + 1
+    //   + 11
+    //   + 12
+    //     + 121
+    //     + 122
+    var view1: UIView!
+    var view11: UIView!
+    var view12: UIView!
+    var view121: UIView!
+    var view122: UIView!
+    
     override func setUp() {
         super.setUp()
+        
+        view1 = createView(tag: 1)
+        
+        view11  = createView(tag: 11)
+        view12  = createView(tag: 12)
+        view1.addSubview(view11)
+        view1.addSubview(view12)
+        
+        view121 = createView(tag: 121)
+        view122 = createView(tag: 122)
+        view12.addSubview(view121)
+        view12.addSubview(view122)
     }
     
     override func tearDown() {
@@ -61,24 +84,7 @@ class UIView_Tests: XCTestCase {
     }
     
     func test_findView() {
-        
-        // + 1
-        //   + 11
-        //   + 12
-        //     + 121
-        //     + 122
-        let view1   = createView(tag: 1)
 
-        let view11  = createView(tag: 11)
-        let view12  = createView(tag: 12)
-        view1.addSubview(view11)
-        view1.addSubview(view12)
-        
-        let view121 = createView(tag: 121)
-        let view122 = createView(tag: 122)
-        view12.addSubview(view121)
-        view12.addSubview(view122)
-        
         var found: UIView?
         
         // find tag = 11
@@ -99,24 +105,7 @@ class UIView_Tests: XCTestCase {
     }
     
     func test_findViews() {
-        
-        // + 1
-        //   + 11
-        //   + 12
-        //     + 121
-        //     + 122
-        let view1   = createView(tag: 1)
-        
-        let view11  = createView(tag: 11)
-        let view12  = createView(tag: 12)
-        view1.addSubview(view11)
-        view1.addSubview(view12)
-        
-        let view121 = createView(tag: 121)
-        let view122 = createView(tag: 122)
-        view12.addSubview(view121)
-        view12.addSubview(view122)
-        
+
         var founds: [UIView]
         
         // find odd tag
@@ -133,26 +122,8 @@ class UIView_Tests: XCTestCase {
     }
     
     func test_applyAllSubviews() {
-        
-        // + 1
-        //   + 11
-        //   + 12
-        //     + 121
-        //     + 122
-        let view1   = createView(tag: 1)
-        
-        let view11  = createView(tag: 11)
-        let view12  = createView(tag: 12)
-        view1.addSubview(view11)
-        view1.addSubview(view12)
-        
-        let view121 = createView(tag: 121)
-        let view122 = createView(tag: 122)
-        view12.addSubview(view121)
-        view12.addSubview(view122)
-        
+
         view1.applyAllSubviews { (view: UIView) -> () in view.tag = 3 }
-        
         XCTAssertEqual(1, view1.tag)
         XCTAssertEqual(3, view11.tag)
         XCTAssertEqual(3, view12.tag)
@@ -162,25 +133,7 @@ class UIView_Tests: XCTestCase {
     
     func test_applyAllViews() {
         
-        // + 1
-        //   + 11
-        //   + 12
-        //     + 121
-        //     + 122
-        let view1   = createView(tag: 1)
-        
-        let view11  = createView(tag: 11)
-        let view12  = createView(tag: 12)
-        view1.addSubview(view11)
-        view1.addSubview(view12)
-        
-        let view121 = createView(tag: 121)
-        let view122 = createView(tag: 122)
-        view12.addSubview(view121)
-        view12.addSubview(view122)
-        
         view1.applyAllViews { (view: UIView) -> () in view.tag = 3 }
-        
         XCTAssertEqual(3, view1.tag)
         XCTAssertEqual(3, view11.tag)
         XCTAssertEqual(3, view12.tag)
