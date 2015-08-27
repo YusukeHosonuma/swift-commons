@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import SwiftCommons
 
 class Array_Tests: XCTestCase {
 

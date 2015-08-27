@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import SwiftCommons
 
 class UIColor_Tests: XCTestCase {
 
