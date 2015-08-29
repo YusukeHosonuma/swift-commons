@@ -22,6 +22,8 @@
 		708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18ED1B8B722800B11067 /* String+Tests.swift */; };
 		708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18EF1B8B769C00B11067 /* UIColor+.swift */; };
 		70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */; };
+		709985A61B9233E900F552EE /* GCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709985A51B9233E900F552EE /* GCDTests.swift */; settings = {ASSET_TAGS = (); }; };
+		709985A81B92345600F552EE /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709985A71B92345600F552EE /* GCD.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		708E18ED1B8B722800B11067 /* String+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Tests.swift"; sourceTree = "<group>"; };
 		708E18EF1B8B769C00B11067 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		70943FEA1B8B7D020024D3DF /* UIColor+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Tests.swift"; sourceTree = "<group>"; };
+		709985A51B9233E900F552EE /* GCDTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTests.swift; sourceTree = "<group>"; };
+		709985A71B92345600F552EE /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				7025D02A1B8B8A1E00D5C982 /* Functions.swift */,
+				709985A71B92345600F552EE /* GCD.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
 			);
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */,
+				709985A51B9233E900F552EE /* GCDTests.swift */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				708E18ED1B8B722800B11067 /* String+Tests.swift */,
 			);
@@ -302,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709985A81B92345600F552EE /* GCD.swift in Sources */,
 				708E18E21B8B50E400B11067 /* Array+.swift in Sources */,
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 				702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */,
@@ -317,6 +324,7 @@
 			files = (
 				7025D0321B8C9FEC00D5C982 /* UIView+Tests.swift in Sources */,
 				70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */,
+				709985A61B9233E900F552EE /* GCDTests.swift in Sources */,
 				708E18EE1B8B722800B11067 /* String+Tests.swift in Sources */,
 				7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */,
 				702B56161B8F5D9D0019617B /* UIViewTestHelper.swift in Sources */,

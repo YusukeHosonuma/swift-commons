@@ -11,6 +11,19 @@ Copy all the files from the SwiftCommons/Classes folder to your project.
 * `isOdd(:Int) -> Bool`
 * `ngt(:Int) -> Int`
 
+### GCD functions
+* `dispatchAfter(delay delay: Double, closure: () -> ())`
+* `dispatchAsync(queue: GCDQueue, closure: () -> ())`
+* `dispatchSync(queue: GCDQueue, closure: () -> ())`
+
+```swift
+dispatchAsync(.Default) {
+    dispatchSync(.Main) {
+        ...
+    }
+}
+```
+
 ### Foundation extensions
 
 #### Array
