@@ -45,6 +45,8 @@ Copy all the files from the SwiftCommons/Classes folder to your project.
 * `height: CGFloat`
 * `right: CGFloat`
 * `bottom: CGFloat`
+* `hide() -> UIView`
+* `show() -> UIView`
 * `findView(:(:UIView) -> Bool) -> UIView?`
 * `findViews(f: (view: UIView) -> Bool) -> [UIView]`
 * `applyAllSubviews(f: (view: UIView) -> ())`

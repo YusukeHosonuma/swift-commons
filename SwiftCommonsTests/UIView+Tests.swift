@@ -83,6 +83,26 @@ class UIView_Tests: XCTestCase {
         XCTAssertEqual(80.0, view.height)
     }
     
+    func test_hide() {
+        
+        let view1 = UIView()
+        view1.hidden = false
+        
+        let view2 = view1.hide()
+        XCTAssertTrue(view1 === view2)
+        XCTAssertTrue(view1.hidden)
+    }
+    
+    func test_show() {
+        
+        let view1 = UIView()
+        view1.hidden = true
+        
+        let view2 = view1.show()
+        XCTAssertTrue(view1 === view2)
+        XCTAssertFalse(view1.hidden)
+    }
+    
     func test_findView() {
 
         var found: UIView?

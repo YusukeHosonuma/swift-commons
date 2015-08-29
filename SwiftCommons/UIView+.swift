@@ -55,6 +55,16 @@ extension UIView {
         return y + height
     }
     
+    func hide() -> UIView {
+        hidden = true
+        return self
+    }
+    
+    func show() -> UIView {
+        hidden = false
+        return self
+    }
+    
     func findView(matchView: (view: UIView) -> Bool) -> UIView? {
         for view in subviews {
             if matchView(view: view) {
