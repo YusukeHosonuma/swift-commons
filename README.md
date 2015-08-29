@@ -35,22 +35,27 @@ Copy all the files from the SwiftCommons/Classes folder to your project.
 * `fromHex(hex: String) -> UIColor?`
 
 #### UIView
-* `+= CGPoint`
-* `-= CGPoint`
-* `+= CGSize`
-* `-= CGSize`
-* `x: CGFloat`
-* `y: CGFloat`
-* `width: CGFloat`
-* `height: CGFloat`
-* `right: CGFloat`
-* `bottom: CGFloat`
-* `hide() -> UIView`
-* `show() -> UIView`
-* `findView(:(:UIView) -> Bool) -> UIView?`
-* `findViews(f: (view: UIView) -> Bool) -> [UIView]`
-* `applyAllSubviews(f: (view: UIView) -> ())`
-* `applyAllViews(f: (view: UIView) -> ())`
+* operators
+  * `+= CGPoint`
+  * `-= CGPoint`
+  * `+= CGSize`
+  * `-= CGSize`
+* properties
+  * `x: CGFloat`
+  * `y: CGFloat`
+  * `width: CGFloat`
+  * `height: CGFloat`
+  * `right: CGFloat`
+  * `bottom: CGFloat`
+  * `position: CGPoint`
+  * `size: CGSize`
+* methods
+  * `hide() -> UIView`
+  * `show() -> UIView`
+  * `findView(:(:UIView) -> Bool) -> UIView?`
+  * `findViews(f: (view: UIView) -> Bool) -> [UIView]`
+  * `applyAllSubviews(f: (view: UIView) -> ())`
+  * `applyAllViews(f: (view: UIView) -> ())`
 
 #### UIViewController
 * `exclusiveTouches()`

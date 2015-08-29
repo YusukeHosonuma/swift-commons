@@ -42,15 +42,21 @@ class UIView_Tests: XCTestCase {
         super.tearDown()
     }
 
-    func test_coord() {
+    func test_coords() {
         
         let view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
+        
+        // coords
         XCTAssertEqual( 10.0, view.x)
         XCTAssertEqual( 20.0, view.y)
         XCTAssertEqual( 40.0, view.width)
         XCTAssertEqual( 80.0, view.height)
         XCTAssertEqual( 50.0, view.right)
         XCTAssertEqual(100.0, view.bottom)
+        
+        // position / size
+        XCTAssertEqual(CGPoint(x: 10.0, y: 20.0), view.position)
+        XCTAssertEqual(CGSize(width: 40.0, height: 80.0), view.size)
     }
     
     func test_move() {

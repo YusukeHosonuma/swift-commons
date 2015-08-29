@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+
+// MARK: UIView operators
+
 func += (left: UIView, right: CGPoint) {
     left.frame.origin.x += right.x
     left.frame.origin.y += right.y
@@ -29,22 +32,28 @@ func -= (left: UIView, right: CGSize) {
     left.frame.size.height -= right.height
 }
 
+
+// MARK: UIView extensions
+
 extension UIView {
     
+    
+    // MARK: Properties
+    
     var x: CGFloat {
-        return self.frame.origin.x
+        return position.x
     }
     
     var y: CGFloat {
-        return self.frame.origin.y
+        return position.y
     }
     
     var width: CGFloat {
-        return self.frame.size.width
+        return size.width
     }
     
     var height: CGFloat {
-        return self.frame.size.height
+        return size.height
     }
     
     var right: CGFloat {
@@ -55,11 +64,24 @@ extension UIView {
         return y + height
     }
     
+    var position: CGPoint {
+        return frame.origin
+    }
+    
+    var size: CGSize {
+        return bounds.size
+    }
+    
+    
+    // MARK: Public methods
+    
+    /// Hide and return self.
     func hide() -> UIView {
         hidden = true
         return self
     }
     
+    /// Show and return self.
     func show() -> UIView {
         hidden = false
         return self
