@@ -21,9 +21,8 @@ extension String {
         return substringWithRange(Range<Index>(start: start, end: end))
     }
     
-    func length() -> Int { // Obj-C compatible
-        let string: NSString = self
-        return string.length
+    var length: Int {
+        return characters.count
     }
     
     func urlEncode() -> String {
