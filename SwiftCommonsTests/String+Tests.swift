@@ -61,4 +61,19 @@ class String_Tests: XCTestCase {
         let decodedString = encodedString.urlDecode()
         XCTAssertEqual(string, decodedString)
     }
+    
+    func test_toDate() {
+        
+        let string = "2015/09/01 01:43:02"
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        let expect = formatter.dateFromString(string)
+
+        // success
+        XCTAssertEqual(expect!, string.toDate(format: "yyyy/MM/dd HH:mm:ss")!)
+        
+        // fail (missing :ss)
+        XCTAssertNil(string.toDate(format: "yyyy/MM/dd HH:mm"))
+    }
 }

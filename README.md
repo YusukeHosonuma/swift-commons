@@ -41,6 +41,7 @@ dispatchAsync(.Default) {
 * `length() -> Int`
 * `urlEncode() -> String`
 * `urlDecode() -> String`
+* `toDate(format format: String) -> NSDate?`
 
 ### UIKit extensions
 

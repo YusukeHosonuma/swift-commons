@@ -32,4 +32,10 @@ extension String {
     func urlDecode() -> String {
         return stringByRemovingPercentEncoding!
     }
+    
+    func toDate(format format: String) -> NSDate? {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.dateFromString(self)
+    }
 }
