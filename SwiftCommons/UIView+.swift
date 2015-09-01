@@ -87,7 +87,7 @@ extension UIView {
         return self
     }
     
-    func findView(matchView: (view: UIView) -> Bool) -> UIView? {
+    func findView(@noescape matchView: (view: UIView) -> Bool) -> UIView? {
         for view in subviews {
             if matchView(view: view) {
                 return view
@@ -99,7 +99,7 @@ extension UIView {
         return nil
     }
     
-    func findViews(f: (view: UIView) -> Bool) -> [UIView] {
+    func findViews(@noescape f: (view: UIView) -> Bool) -> [UIView] {
         var founds = [UIView]()
         for view in subviews {
             if f(view: view) {
@@ -110,14 +110,14 @@ extension UIView {
         return founds
     }
     
-    func applyAllSubviews(f: (view: UIView) -> ()) {
+    func applyAllSubviews(@noescape f: (view: UIView) -> ()) {
         for view in subviews {
             f(view: view)
             view.applyAllSubviews(f)
         }
     }
     
-    func applyAllViews(f: (view: UIView) -> ()) {
+    func applyAllViews(@noescape f: (view: UIView) -> ()) {
         f(view: self)
         applyAllSubviews(f)
     }

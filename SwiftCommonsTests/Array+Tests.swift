@@ -10,7 +10,7 @@ import XCTest
 @testable import SwiftCommons
 
 class Array_Tests: XCTestCase {
-
+    
     override func setUp() {
         super.setUp()
     }

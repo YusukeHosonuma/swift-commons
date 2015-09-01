@@ -34,13 +34,13 @@ extension Array {
         }
     }
 
-    func forEach(f: Element -> ()) {
+    func forEach(@noescape f: Element -> ()) {
         for n: Element in self {
             f(n)
         }
     }
     
-    func reduce1(f: (a: Element, b: Element) -> Element) -> Element {
+    func reduce1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
         var x = first!
         for e in tail() {
             x = f(a: x, b: e)
