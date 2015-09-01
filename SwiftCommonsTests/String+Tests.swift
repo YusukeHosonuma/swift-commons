@@ -49,6 +49,8 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("Hello".length, 5)
         XCTAssertEqual("あいうえお".length, 5)
         XCTAssertEqual("🍎🍊🍌🍇🍉".length, 5)
+        XCTAssertEqual("\u{E9}".length, 1) // // é
+        XCTAssertEqual("\u{65}\u{301}".length, 1) // e followed by ́
     }
     
     func test_urlEncode_urlDecode() {
