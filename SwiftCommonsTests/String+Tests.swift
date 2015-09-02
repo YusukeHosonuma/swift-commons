@@ -19,6 +19,13 @@ class String_Tests: XCTestCase {
         super.tearDown()
     }
     
+    func test_repeat() {
+        
+        XCTAssertEqual("abc" * 1, "abc")
+        XCTAssertEqual("abc" * 2, "abcabc")
+        XCTAssertEqual("abc" * 3, "abcabcabc")
+    }
+    
     func test_subscript_index() {
 
         XCTAssertEqual("Hello"[0], "H")

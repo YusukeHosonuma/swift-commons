@@ -8,6 +8,10 @@
 
 import Foundation
 
+func * (left: String, right: Int) -> String {
+    return (1...right).map { _ -> String in left }.joinWithSeparator("")
+}
+
 extension String {
     
     subscript(i: Int) -> String {
