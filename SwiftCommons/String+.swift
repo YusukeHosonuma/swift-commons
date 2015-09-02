@@ -28,6 +28,24 @@ extension String {
     var length: Int {
         return characters.count
     }
+
+    /**
+    Trim white space chars.
+    
+    - returns: Trimed string.
+     */
+    func trim() -> String {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+    
+    /**
+    Trim white space and new line chars.
+    
+    - returns: Trimed string.
+    */
+    func trimn() -> String {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }
     
     func urlEncode() -> String {
         return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!

@@ -19,12 +19,18 @@ class String_Tests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: -
+    // MARK: operator
+    
     func test_repeat() {
         
         XCTAssertEqual("abc" * 1, "abc")
         XCTAssertEqual("abc" * 2, "abcabc")
         XCTAssertEqual("abc" * 3, "abcabcabc")
     }
+    
+    // MARK: -
+    // MARK: subscript
     
     func test_subscript_index() {
 
@@ -52,12 +58,30 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("Hello"[0..<5], "Hello")
     }
     
+    // MARK: -
+    // MARK: property
+
     func test_length() {
         XCTAssertEqual("Hello".length, 5)
         XCTAssertEqual("あいうえお".length, 5)
         XCTAssertEqual("🍎🍊🍌🍇🍉".length, 5)
         XCTAssertEqual("\u{E9}".length, 1) // // é
         XCTAssertEqual("\u{65}\u{301}".length, 1) // e followed by ́
+    }
+    
+    // MARK: -
+    // MARK: method
+    
+    func test_trim() {
+        XCTAssertEqual("hello".trim(), "hello")
+        XCTAssertEqual(" hello ".trim(), "hello")
+        XCTAssertEqual("  hello  ".trim(), "hello")
+    }
+    
+    func test_trimn() {
+        XCTAssertEqual("hello\n".trimn(), "hello")
+        XCTAssertEqual("\n hello\n ".trimn(), "hello")
+        XCTAssertEqual("  \nhello  \n".trimn(), "hello")
     }
     
     func test_urlEncode_urlDecode() {
