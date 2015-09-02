@@ -36,9 +36,13 @@ dispatchAsync(.Default) {
 * `reduce1(:(a: Element, b: Element) -> Element) -> Element`
 
 #### String
+* `* :Int -> String`
 * `length: Int`
 * `subscript(i: Int) -> String`
 * `subscript(range: Range<Int>) -> String`
+* `trim() -> String`
+* `trimn() -> String`
+* `split(separator: String) -> [String]`
 * `urlEncode() -> String`
 * `urlDecode() -> String`
 * `toDate(format format: String) -> NSDate?`
