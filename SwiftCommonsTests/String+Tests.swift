@@ -84,6 +84,12 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("  \nhello  \n".trimn(), "hello")
     }
     
+    func test_split() {
+        XCTAssertEqual(
+            ["apple", "banana", "orange"],
+            "apple-banana-orange".split("-"))
+    }
+    
     func test_urlEncode_urlDecode() {
         
         let string = "http://hogehoge.com/?param=!*'();:@&=+$,/?%#[]"

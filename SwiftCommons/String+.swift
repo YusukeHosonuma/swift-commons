@@ -47,6 +47,16 @@ extension String {
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
     
+    /**
+    Split string.
+    
+    - parameter separator: separator string
+    - returns: [String]
+    */
+    func split(separator: String) -> [String] {
+        return componentsSeparatedByString(separator)
+    }
+    
     func urlEncode() -> String {
         return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
     }
