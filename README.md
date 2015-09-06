@@ -10,6 +10,9 @@ Copy all the files from the SwiftCommons/Classes folder to your project.
 * `isEven(:Int) -> Bool`
 * `isOdd(:Int) -> Bool`
 * `ngt(:Int) -> Int`
+* `screenSize() -> CGSize`
+* `screenWidth() -> CGFloat`
+* `screenHeight() -> CGFloat`
 
 ### GCD functions
 * `dispatchAfter(delay delay: Double, closure: () -> ())`
