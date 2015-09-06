@@ -103,16 +103,27 @@ class String_Tests: XCTestCase {
     
     func test_toDate() {
         
-        let string = "2015/09/01 01:43:02"
+        func expect (y y:Int, m:Int, d:Int) -> NSDate? {
+            let dateComp = NSDateComponents()
+            dateComp.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+            dateComp.year = y
+            dateComp.month = m
+            dateComp.day = d
+            return dateComp.date
+        }
         
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
-        let expect = formatter.dateFromString(string)
-
-        // success
-        XCTAssertEqual(expect!, string.toDate(format: "yyyy/MM/dd HH:mm:ss")!)
+        //gregorian test
+        let e = expect(y: 2015, m: 9, d: 6)
+        let d = "2015/9/6".toDate(format: "yyyy/M/d")
+        XCTAssertEqual(e!, d!)
         
-        // fail (missing :ss)
-        XCTAssertNil(string.toDate(format: "yyyy/MM/dd HH:mm"))
+        //japanese test 1
+        let d_us_JP = "H27 9/6".toDate(format: "GGGGGyy M/d",cal:NSCalendarIdentifierJapanese, loc:"us_JP")
+        XCTAssertEqual(e!, d_us_JP!)
+        
+        //japanese test 2
+        let d_ja_JP = "平成27年9月6日".toDate(format: "GGGyy年M月d日",cal:NSCalendarIdentifierJapanese, loc:"ja_JP")
+        XCTAssertEqual(e!, d_ja_JP!)
+        
     }
 }

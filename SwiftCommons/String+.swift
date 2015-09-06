@@ -65,9 +65,37 @@ extension String {
         return stringByRemovingPercentEncoding!
     }
     
-    func toDate(format format: String) -> NSDate? {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = format
-        return formatter.dateFromString(self)
+    /**
+    Converting String to NSDate
+    
+    - parameter format: date format strings
+    - parameter ca    : calendar identifier. default is gregorian.
+    - parameter loc   : location identifier. default is specified by setting app.
+    - parameter tz    : time zone. default is specified by setting app.
+    */
+    func toDate(format format: String,
+                          cal: String? = NSCalendarIdentifierGregorian,
+                          loc: String? = nil,
+                           tz: String? = nil) -> NSDate? {
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = format
+           
+            //set calendar
+            if let _ = cal {
+                formatter.calendar = NSCalendar(calendarIdentifier: cal!)
+            }
+                            
+            //set locale
+            if let _ = loc {
+                formatter.locale = NSLocale(localeIdentifier: loc!)
+            }
+            
+            //set timeZone
+            if let _ = tz {
+                formatter.timeZone = NSTimeZone(name: tz!)
+            }
+            
+            return formatter.dateFromString(self)
     }
 }
