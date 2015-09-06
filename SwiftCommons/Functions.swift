@@ -19,3 +19,15 @@ func isOdd(x: Int) -> Bool {
 func ngt(x: Int) -> Int {
     return -x
 }
+
+func screenSize() -> CGSize {
+    return UIScreen.mainScreen().bounds.size
+}
+
+func screenWidth() -> CGFloat {
+    return screenSize().width
+}
+
+func screenHeight() -> CGFloat {
+    return screenSize().height
+}

@@ -49,4 +49,20 @@ class UIViewController_Tests: XCTestCase {
         XCTAssertTrue(view121.exclusiveTouch)
         XCTAssertTrue(view122.exclusiveTouch)
     }
+    
+    func test_screenSize() {
+        
+        let size: CGSize = screenSize()
+        
+        // iPhone 6 (375x667)
+        XCTAssertEqual(375, size.width)
+        XCTAssertEqual(667, size.height)
+    }
+    
+    func test_screenWith_screenHeight() {
+        
+        // iPhone 6 (375x667)
+        XCTAssertEqual(375, screenWidth())
+        XCTAssertEqual(667, screenHeight())
+    }
 }
