@@ -103,27 +103,38 @@ class String_Tests: XCTestCase {
     
     func test_toDate() {
         
-        func expect (y y:Int, m:Int, d:Int) -> NSDate? {
+        func expect (y y:Int, M:Int, d:Int, h:Int = 0, m:Int = 0, s:Int = 0, tz:String? = nil) -> NSDate? {
             let dateComp = NSDateComponents()
             dateComp.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
             dateComp.year = y
-            dateComp.month = m
+            dateComp.month = M
             dateComp.day = d
+            dateComp.hour = h
+            dateComp.minute = m
+            dateComp.second = s
+            if let _ = tz {
+                dateComp.timeZone = NSTimeZone(name: tz!)
+            }
+            
             return dateComp.date
         }
         
-        //gregorian test
-        let e = expect(y: 2015, m: 9, d: 6)
-        let d = "2015/9/6".toDate(format: "yyyy/M/d")
-        XCTAssertEqual(e!, d!)
+        //toDate(formatWST:) test
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6)!, "2015/9/6".toDate(formatWST: "yyyy/M/d"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59)!, "2015/9/6 23:59:59 ".toDate(formatWST: "yyyy/M/d H:mm:ss"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59, tz:"GMT")!, "2015/9/6 23:59:59 ".toDate(formatWST: "yyyy/M/d H:mm:ss", tz:"GMT"))
         
-        //japanese test 1
-        let d_us_JP = "H27 9/6".toDate(format: "GGGGGyy M/d",cal:NSCalendarIdentifierJapanese, loc:"us_JP")
-        XCTAssertEqual(e!, d_us_JP!)
+       
+        //toDate(formatJP:) test1
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6)!, "平成27年9月6日".toDate(formatJP: "GGGyy年M月d日"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59)!, "平成27年9月6日 23:59:59".toDate(formatJP: "GGGyy年M月d日 H:mm:ss"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59, tz:"GMT")!, "平成27年9月6日 23:59:59 ".toDate(formatJP: "GGGyy年M月d日 H:mm:ss", tz:"GMT"))
         
-        //japanese test 2
-        let d_ja_JP = "平成27年9月6日".toDate(format: "GGGyy年M月d日",cal:NSCalendarIdentifierJapanese, loc:"ja_JP")
-        XCTAssertEqual(e!, d_ja_JP!)
+        //toDate(formatJP:) test2
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6)!, "H27 9/6".toDate(formatJP: "GGGGGyy M/d", loc:"en_JP"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59)!, "H27 9/6 23:59:59".toDate(formatJP: "GGGGGyy M/d H:mm:ss"))
+        XCTAssertEqual(expect(y: 2015, M: 9, d: 6, h:23, m:59, s:59, tz:"GMT")!, "Heisei 27 9/6 23:59:59 ".toDate(formatJP: "GGG yy M/d H:mm:ss", loc:"en_JP", tz:"GMT"))
+
         
     }
 }
