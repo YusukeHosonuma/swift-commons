@@ -14,6 +14,8 @@
 		702B56141B8F5C950019617B /* UIViewController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56131B8F5C950019617B /* UIViewController+Tests.swift */; settings = {ASSET_TAGS = (); }; };
 		702B56161B8F5D9D0019617B /* UIViewTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56151B8F5D9D0019617B /* UIViewTestHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56181B8F5EE10019617B /* UIViewController+.swift */; settings = {ASSET_TAGS = (); }; };
+		707278891BA1CC47002770EF /* NSDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707278881BA1CC47002770EF /* NSDate+.swift */; settings = {ASSET_TAGS = (); }; };
+		7072788D1BA1CCAB002770EF /* NSDate+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */; settings = {ASSET_TAGS = (); }; };
 		7077E5351B44111F00E3BBED /* SwiftCommons.h in Headers */ = {isa = PBXBuildFile; fileRef = 7077E5341B44111F00E3BBED /* SwiftCommons.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7077E53B1B44111F00E3BBED /* SwiftCommons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7077E52F1B44111F00E3BBED /* SwiftCommons.framework */; };
 		708E18E21B8B50E400B11067 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E18E11B8B50E400B11067 /* Array+.swift */; };
@@ -44,6 +46,8 @@
 		702B56131B8F5C950019617B /* UIViewController+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Tests.swift"; sourceTree = "<group>"; };
 		702B56151B8F5D9D0019617B /* UIViewTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTestHelper.swift; sourceTree = "<group>"; };
 		702B56181B8F5EE10019617B /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		707278881BA1CC47002770EF /* NSDate+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+.swift"; sourceTree = "<group>"; };
+		7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Tests.swift"; sourceTree = "<group>"; };
 		7077E52F1B44111F00E3BBED /* SwiftCommons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7077E5331B44111F00E3BBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7077E5341B44111F00E3BBED /* SwiftCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCommons.h; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				709985A71B92345600F552EE /* GCD.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
+				707278881BA1CC47002770EF /* NSDate+.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				709985A51B9233E900F552EE /* GCDTests.swift */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				708E18ED1B8B722800B11067 /* String+Tests.swift */,
+				7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			files = (
 				709985A81B92345600F552EE /* GCD.swift in Sources */,
 				708E18E21B8B50E400B11067 /* Array+.swift in Sources */,
+				707278891BA1CC47002770EF /* NSDate+.swift in Sources */,
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 				702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */,
 				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
@@ -329,6 +336,7 @@
 				7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */,
 				702B56161B8F5D9D0019617B /* UIViewTestHelper.swift in Sources */,
 				702B56141B8F5C950019617B /* UIViewController+Tests.swift in Sources */,
+				7072788D1BA1CCAB002770EF /* NSDate+Tests.swift in Sources */,
 				708E18E41B8B518000B11067 /* Array+Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
