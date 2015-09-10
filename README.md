@@ -50,6 +50,10 @@ dispatchAsync(.Default) {
 * `urlDecode() -> String`
 * `toDate(format format: String) -> NSDate?`
 
+#### NSDate
+* `NSDate.fromRFC3339String(string: String) -> NSDate?`
+* `NSDate.toRFC3339String(date: NSDate) -> String?`
+
 ### UIKit extensions
 
 #### UIColor
