@@ -68,62 +68,29 @@ extension String {
     /**
     Converting Calendar Date String to NSDate
     
-    - parameter format : Calendar date format strings.
-    - parameter cal    : calendar identifier. The default value depend on System Preference.
-    - parameter loc    : location identifier. The default value depend on System Preference.
-    - parameter tz     : time zone. The default value depend on System Preference.
+    - parameter format   : Calendar date format strings.
+    - parameter calendar : calendar identifier.
+    - parameter language : location identifier.
+    - parameter timeZone : time zone.
     */
     func toDate(format format: String,
-        cal: String? = nil,
-        loc: String? = nil,
-        tz: String? = nil) -> NSDate? {
+                     calendar: String = NSCalendarIdentifierGregorian,
+                     language: String = "en",
+                     timeZone: String = "GMT") -> NSDate? {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
             
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = format
-            
-            //set calendar
-            if let _ = cal {
-                formatter.calendar = NSCalendar(calendarIdentifier: cal!)
-            }
-            
-            //set locale
-            if let _ = loc {
-                formatter.locale = NSLocale(localeIdentifier: loc!)
-            }
-            
-            //set timeZone
-            if let _ = tz {
-                formatter.timeZone = NSTimeZone(name: tz!)
-            }
-            
-            return formatter.dateFromString(self)
+        //set calendar
+        formatter.calendar = NSCalendar(calendarIdentifier: calendar)
+        
+        //set locale
+        formatter.locale = NSLocale(localeIdentifier: language)
+        
+        //set timeZone
+        formatter.timeZone = NSTimeZone(name: timeZone)
+        
+        return formatter.dateFromString(self)
     }
-    
-    /**
-    Converting Gregorian Calendar Date String to NSDate
-    
-    - parameter formatWST : Gregorian Calendar date format strings.
-    - parameter loc       : location identifier. The default value depend on System Preference.
-    - parameter tz        : time zone. The default value depend on System Preference.
-    */
-    func toDate(formatWST formatWST: String,
-        loc: String? = nil,
-        tz: String? = nil) -> NSDate? {
-            
-            return toDate(format: formatWST, cal: NSCalendarIdentifierGregorian, loc: loc, tz: tz);
-    }
-    
-    /**
-    Converting Japanese Calendar Date String to NSDate
-    
-    - parameter formatJP : Japanease Calendar date format strings.
-    - parameter loc      : location identifier. The default value is ja_JP.
-    - parameter tz       : time zone. The default value depend on System Preference.
-    */
-    func toDate(formatJP format: String,
-        loc: String = "ja_JP",
-        tz: String? = nil) -> NSDate? {
-            
-            return toDate(format: format, cal: NSCalendarIdentifierJapanese, loc: loc, tz: tz);
-    }
+
 }
