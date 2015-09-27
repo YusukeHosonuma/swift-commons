@@ -39,14 +39,6 @@ extension Array {
             f(n)
         }
     }
-    
-    func reduce1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
-        var x = first!
-        for e in tail() {
-            x = f(a: x, b: e)
-        }
-        return x
-    }
 
     /// Alias for reduce, like Haskell.
     func foldl<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
@@ -56,5 +48,19 @@ extension Array {
     /// foldr from Haskell.
     func foldr<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
         return reverse().reduce(acc, combine: f)
+    }
+    
+    /// foldl1 from Haskell.
+    func foldl1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
+        var x = first!
+        for e in tail() {
+            x = f(a: x, b: e)
+        }
+        return x
+    }
+    
+    /// foldr1 from Haskell.
+    func foldr1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
+        return reverse().foldl1(f)
     }
 }

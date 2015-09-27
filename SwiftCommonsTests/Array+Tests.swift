@@ -79,11 +79,6 @@ class Array_Tests: XCTestCase {
         XCTAssertEqual("2!", s2)
     }
     
-    func test_reduce1() {
-        XCTAssertEqual([0].reduce1{ $0 + $1 }, 0)
-        XCTAssertEqual([0, 1, 2, 3, 4].reduce1{ $0 + $1 }, 10)
-    }
-    
     func test_foldl() {
         XCTAssertEqual(10, [1, 2, 3, 4].foldl(0){ $0 + $1 })
     }
@@ -94,5 +89,15 @@ class Array_Tests: XCTestCase {
             return acc
         }
         XCTAssertEqual([4, 3, 2, 1], newArray)
+    }
+    
+    func test_foldl1() {
+        XCTAssertEqual([0].foldl1{ $0 + $1 }, 0)
+        XCTAssertEqual([0, 1, 2, 3, 4].foldl1{ $0 + $1 }, 10)
+    }
+    
+    func test_foldr1() {
+        XCTAssertEqual([0].foldr1{ $0 + $1 }, 0)
+        XCTAssertEqual([0, 1, 2, 3, 4].foldr1{ $0 - $1 }, -2)
     }
 }
