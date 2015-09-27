@@ -47,4 +47,14 @@ extension Array {
         }
         return x
     }
+
+    /// Alias for reduce, like Haskell.
+    func foldl<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
+        return reduce(acc, combine: f)
+    }
+    
+    /// foldr from Haskell.
+    func foldr<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
+        return reverse().reduce(acc, combine: f)
+    }
 }

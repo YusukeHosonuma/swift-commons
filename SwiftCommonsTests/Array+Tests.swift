@@ -83,4 +83,16 @@ class Array_Tests: XCTestCase {
         XCTAssertEqual([0].reduce1{ $0 + $1 }, 0)
         XCTAssertEqual([0, 1, 2, 3, 4].reduce1{ $0 + $1 }, 10)
     }
+    
+    func test_foldl() {
+        XCTAssertEqual(10, [1, 2, 3, 4].foldl(0){ $0 + $1 })
+    }
+    
+    func test_foldr() {
+        let newArray = [1, 2, 3, 4].foldr([Int]()) { (var acc, b) in
+            acc.append(b)
+            return acc
+        }
+        XCTAssertEqual([4, 3, 2, 1], newArray)
+    }
 }
