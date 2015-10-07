@@ -65,9 +65,32 @@ extension String {
         return stringByRemovingPercentEncoding!
     }
     
-    func toDate(format format: String) -> NSDate? {
+    /**
+    Converting Calendar Date String to NSDate
+    
+    - parameter format   : Calendar date format strings.
+    - parameter calendar : calendar identifier.
+    - parameter language : location identifier.
+    - parameter timeZone : time zone.
+    */
+    func toDate(format format: String,
+                     calendar: String = NSCalendarIdentifierGregorian,
+                     language: String = "en",
+                     timeZone: String = "GMT") -> NSDate? {
+        
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
+            
+        //set calendar
+        formatter.calendar = NSCalendar(calendarIdentifier: calendar)
+        
+        //set locale
+        formatter.locale = NSLocale(localeIdentifier: language)
+        
+        //set timeZone
+        formatter.timeZone = NSTimeZone(name: timeZone)
+        
         return formatter.dateFromString(self)
     }
+
 }
