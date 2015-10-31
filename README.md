@@ -85,6 +85,17 @@ dispatchAsync(.Default) {
 #### UIViewController
 * `exclusiveTouches()`
 
+### Protocol Extensions
+
+#### StoryboardInitializable where Self: UIViewControlle
+ * static func instantiateStoryboard() -> Self
+ * static func instantiateStoryboard(bundle bundle: NSBundle?) -> Self
+
+#### XibInitializable where Self: UIView
+ * static func instantiateXib() -> Self
+ * static func instantiateXib(bundle bundle: NSBundle?) -> Self
+
+
 ## Requirements
 
 Swift 2.0 / iOS 8.0+
