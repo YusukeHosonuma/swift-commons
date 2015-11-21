@@ -39,6 +39,7 @@ dispatchAsync(.Default) {
 * `reduce1(:(a: Element, b: Element) -> Element) -> Element`
 
 #### SequenceType
+* replaceLast(replacement: Generator.Element) -> [Generator.Element]
 * group() -> [[Generator.Element]]
 * groupBy(condition: (Generator.Element, Generator.Element) -> Bool) -> [[Generator.Element]]
 * concat() -> [Generator.Element.Generator.Element]

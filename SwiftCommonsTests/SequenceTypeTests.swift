@@ -19,6 +19,11 @@ class SequenceTypeTests: XCTestCase {
         super.tearDown()
     }
     
+    func test_last() {
+        XCTAssertEqual([].replaceLast(4), [4])
+        XCTAssertEqual([1, 2, 3].replaceLast(4), [1, 2, 4])
+    }
+    
     func test_group() {
         
         var array: [Int]

@@ -8,6 +8,23 @@
 
 import Foundation
 
+extension SequenceType {
+    
+    /**
+     ex)
+     - [].replaceLast(4) -> [4]
+     - [1, 2, 3].replaceLast(4) -> [1, 2, 4]
+     */
+    func replaceLast(replacement: Generator.Element) -> [Generator.Element] {
+        var array = Array(self)
+        if !array.isEmpty {
+            array.removeLast()
+        }
+        array.append(replacement)
+        return array
+    }
+}
+
 extension SequenceType where Generator.Element : Equatable {
 
     func group() -> [[Generator.Element]] {
