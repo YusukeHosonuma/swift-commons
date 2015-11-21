@@ -42,4 +42,12 @@ extension NSDate {
         formatter.timeZone = NSTimeZone.defaultTimeZone()
         return formatter.stringFromDate(date)
     }
+    
+    func unixtime() -> NSTimeInterval {
+        return self.timeIntervalSince1970
+    }
+    
+    class func fromUnixtime(unixtime: NSTimeInterval) -> NSDate {
+        return NSDate(timeIntervalSince1970: unixtime)
+    }
 }

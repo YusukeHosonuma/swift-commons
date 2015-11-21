@@ -65,6 +65,8 @@ dispatchAsync(.Default) {
 #### NSDate
 * NSDate.fromRFC3339String(string: String) -> NSDate?
 * NSDate.toRFC3339String(date: NSDate) -> String?
+* unixtime() -> NSTimeInterval
+* NSDate.fromUnixtime(unixtime: NSTimeInterval) -> NSDate
 
 ### UIKit extensions
 

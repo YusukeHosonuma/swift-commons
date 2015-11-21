@@ -62,4 +62,22 @@ class NSDate_Tests: XCTestCase {
             "2015-09-10T23:37:05+09:00",
             NSDate.toRFC3339String(dateAsia)!)
     }
+    
+    func test_unixtime() {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        
+        let date = formatter.dateFromString("2015/11/22 01:33:00")
+        XCTAssertEqual(date!.unixtime(), 1448123580.0)
+    }
+    
+    func test_fromUnixtime() {
+        
+        let date = NSDate.fromUnixtime(1448123580.0)
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        XCTAssertEqual(formatter.stringFromDate(date), "2015/11/22 01:33:00")
+    }
 }
