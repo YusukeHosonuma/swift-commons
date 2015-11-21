@@ -29,6 +29,19 @@ extension StoryboardInitializable where Self: UIViewController {
         let viewController = storyboard.instantiateInitialViewController() as! Self
         return viewController
     }
+    
+    static func instantiateStoryboard(identifier identifier: String) -> Self {
+        let bundle = NSBundle(forClass: self)
+        return instantiateStoryboard(bundle: bundle, identifier: identifier)
+    }
+    
+    static func instantiateStoryboard(bundle bundle: NSBundle?, identifier: String) -> Self {
+        let type = Mirror(reflecting: self).subjectType
+        let name = String(type).componentsSeparatedByString(".")[0]
+        let storyboard = UIStoryboard(name: name, bundle: bundle)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! Self
+        return viewController
+    }
 }
 
 extension XibInitializable where Self: UIView {

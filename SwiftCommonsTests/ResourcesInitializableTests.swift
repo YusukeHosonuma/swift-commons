@@ -20,16 +20,25 @@ class ResourcesInitializableTests: XCTestCase {
     }
     
     func test_instantiateStoryboard() {
-        
+
+        let bundle = NSBundle(forClass: self.dynamicType)
+
         var viewController: UIViewController
         
-        // use default bundle
+        // by initial with default bundle
         viewController = SampleViewController.instantiateStoryboard()
         XCTAssertNotNil(viewController)
         
-        // use custom bundle
-        let bundle = NSBundle(forClass: self.dynamicType)
+        // by initial with custom bundle
         viewController = SampleViewController.instantiateStoryboard(bundle: bundle)
+        XCTAssertNotNil(viewController)
+        
+        // by identifier with default bundle
+        viewController = SampleViewController.instantiateStoryboard(identifier: "SampleViewController2")
+        XCTAssertNotNil(viewController)
+        
+        // by identifier with default bundle
+        viewController = SampleViewController.instantiateStoryboard(bundle: bundle, identifier: "SampleViewController2")
         XCTAssertNotNil(viewController)
     }
     

@@ -94,6 +94,8 @@ dispatchAsync(.Default) {
 #### StoryboardInitializable where Self: UIViewControlle
  * static func instantiateStoryboard() -> Self
  * static func instantiateStoryboard(bundle bundle: NSBundle?) -> Self
+ * static func instantiateStoryboard(identifier identifier: String) -> Self     
+ * static func instantiateStoryboard(bundle bundle: NSBundle?, identifier: String) -> Self
 
 #### XibInitializable where Self: UIView
  * static func instantiateXib() -> Self
