@@ -7,17 +7,17 @@ Copy all the files from the SwiftCommons/Classes folder to your project.
 ## APIs
 
 ### Global functions
-* `isEven(:Int) -> Bool`
-* `isOdd(:Int) -> Bool`
-* `ngt(:Int) -> Int`
-* `screenSize() -> CGSize`
-* `screenWidth() -> CGFloat`
-* `screenHeight() -> CGFloat`
+* isEven(:Int) -> Bool
+* isOdd(:Int) -> Bool
+* ngt(:Int) -> Int
+* screenSize() -> CGSize
+* screenWidth() -> CGFloat
+* screenHeight() -> CGFloat
 
 ### GCD functions
-* `dispatchAfter(delay delay: Double, closure: () -> ())`
-* `dispatchAsync(queue: GCDQueue, closure: () -> ())`
-* `dispatchSync(queue: GCDQueue, closure: () -> ())`
+* dispatchAfter(delay delay: Double, closure: () -> ())
+* dispatchAsync(queue: GCDQueue, closure: () -> ())
+* dispatchSync(queue: GCDQueue, closure: () -> ())
 
 ```swift
 dispatchAsync(.Default) {
@@ -30,13 +30,13 @@ dispatchAsync(.Default) {
 ### Foundation extensions
 
 #### Array
-* `subscript(orNil index: Int) -> Element?`
-* `inits() -> Array`
-* `tail() -> Array`
-* `take(:Int) -> Array`
-* `drop(:Int) -> Array`
-* `forEach(:Element -> ())`
-* `reduce1(:(a: Element, b: Element) -> Element) -> Element`
+* subscript(orNil index: Int) -> Element?
+* inits() -> Array
+* tail() -> Array
+* take(:Int) -> Array
+* drop(:Int) -> Array
+* forEach(:Element -> ())
+* reduce1(:(a: Element, b: Element) -> Element) -> Element
 
 #### SequenceType
 * replaceLast(replacement: Generator.Element) -> [Generator.Element]
@@ -45,16 +45,16 @@ dispatchAsync(.Default) {
 * concat() -> [Generator.Element.Generator.Element]
 
 #### String
-* `* :Int -> String`
-* `length: Int`
-* `subscript(i: Int) -> String`
-* `subscript(range: Range<Int>) -> String`
-* `trim() -> String`
-* `trimn() -> String`
-* `split(separator: String) -> [String]`
-* `urlEncode() -> String`
-* `urlDecode() -> String`
-* `toDate(format format: String) -> NSDate?`
+* * :Int -> String
+* length: Int
+* subscript(i: Int) -> String
+* subscript(range: Range<Int>) -> String
+* trim() -> String
+* trimn() -> String
+* split(separator: String) -> [String]
+* urlEncode() -> String
+* urlDecode() -> String
+* toDate(format format: String) -> NSDate?
 * mask() -> String
 * mask(mask: String) -> String
 * maskHead(count count: Int) -> String
@@ -63,39 +63,39 @@ dispatchAsync(.Default) {
 * maskTail(mask: String, count: Int) -> String
 
 #### NSDate
-* `NSDate.fromRFC3339String(string: String) -> NSDate?`
-* `NSDate.toRFC3339String(date: NSDate) -> String?`
+* NSDate.fromRFC3339String(string: String) -> NSDate?
+* NSDate.toRFC3339String(date: NSDate) -> String?
 
 ### UIKit extensions
 
 #### UIColor
-* `fromHex(hex: String) -> UIColor?`
+* fromHex(hex: String) -> UIColor?
 
 #### UIView
 * operators
-  * `+= CGPoint`
-  * `-= CGPoint`
-  * `+= CGSize`
-  * `-= CGSize`
+  * += CGPoint
+  * -= CGPoint
+  * += CGSize
+  * -= CGSize
 * properties
-  * `x: CGFloat`
-  * `y: CGFloat`
-  * `width: CGFloat`
-  * `height: CGFloat`
-  * `right: CGFloat`
-  * `bottom: CGFloat`
-  * `position: CGPoint`
-  * `size: CGSize`
+  * x: CGFloat
+  * y: CGFloat
+  * width: CGFloat
+  * height: CGFloat
+  * right: CGFloat
+  * bottom: CGFloat
+  * position: CGPoint
+  * size: CGSize
 * methods
-  * `hide() -> UIView`
-  * `show() -> UIView`
-  * `findView(:(:UIView) -> Bool) -> UIView?`
-  * `findViews(f: (view: UIView) -> Bool) -> [UIView]`
-  * `applyAllSubviews(f: (view: UIView) -> ())`
-  * `applyAllViews(f: (view: UIView) -> ())`
+  * hide() -> UIView
+  * show() -> UIView
+  * findView(:(:UIView) -> Bool) -> UIView?
+  * findViews(f: (view: UIView) -> Bool) -> [UIView]
+  * applyAllSubviews(f: (view: UIView) -> ())
+  * applyAllViews(f: (view: UIView) -> ())
 
 #### UIViewController
-* `exclusiveTouches()`
+* exclusiveTouches()
 
 ### Protocol Extensions
 
