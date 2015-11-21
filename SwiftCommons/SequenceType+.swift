@@ -27,17 +27,29 @@ extension SequenceType {
 
 extension SequenceType where Generator.Element : Equatable {
 
+    /**
+     Same by `groupBy(==)`
+     
+     ex)
+     - [].group() -> []
+     - [1, 1 ,1, 2, 3, 3].group() -> [[1, 1, 1], [2], [3, 3]]
+     */
     func group() -> [[Generator.Element]] {
-        return self.groupBy{ $0 == $1 }
+        return self.groupBy(==)
     }
 
+    /**
+     ex)
+     - [].groupBy(==) -> []
+     - [1, 1 ,1, 2, 3, 3].group(==) -> [[1, 1, 1], [2], [3, 3]]
+     - [1, 1 ,1, 2, 3, 3].group(!=) -> [[1], [1], [1, 2, 3], [3]]
+     */
     func groupBy(condition: (Generator.Element, Generator.Element) -> Bool) -> [[Generator.Element]] {
         var grouped: [[Generator.Element]] = []
         for x in self {
             if var lastGroup = grouped.last, let element = lastGroup.last where condition(element, x) {
-                grouped.removeLast()
                 lastGroup.append(x)
-                grouped.append(lastGroup)
+                grouped = grouped.replaceLast(lastGroup)
             } else {
                 grouped.append([x])
             }

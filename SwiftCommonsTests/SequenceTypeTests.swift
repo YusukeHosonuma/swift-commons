@@ -40,11 +40,11 @@ class SequenceTypeTests: XCTestCase {
         var array: [Int]
         
         array = [1, 1 ,1, 2, 3, 3]
-        XCTAssertEqual(array.groupBy{ $0 == $1 }, [[1, 1, 1], [2], [3, 3]])
-        XCTAssertEqual(array.groupBy{ $0 != $1 }, [[1], [1], [1, 2, 3], [3]])
+        XCTAssertEqual(array.groupBy(==), [[1, 1, 1], [2], [3, 3]])
+        XCTAssertEqual(array.groupBy(!=), [[1], [1], [1, 2, 3], [3]])
         
         array = []
-        XCTAssertEqual(array.groupBy{ $0 == $1 }, [])
+        XCTAssertEqual(array.groupBy(==), [])
     }
     
     func test_concat() {
