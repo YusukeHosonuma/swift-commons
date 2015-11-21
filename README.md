@@ -112,8 +112,19 @@ dispatchAsync(.Default) {
  * static func instantiateXib(bundle bundle: NSBundle?) -> Self
 
 ### Debug helpers
+ * typealias D = Debug
  * Debug.time(process: () -> ()) -> NSTimeInterval
- * Debug.timePrint(label: String, process: () -> ())
+ * Debug.timePrint(label: String = "", process: () -> ())
+ * Debug.debug(string)
+ * Debug.info(string)
+ * Debug.warn(string)
+ * Debug.error(string)
+ * Shortcuts
+   * Debug.t(label: String = "", process: () -> ())
+   * Debug.d(string)
+   * Debug.i(string)
+   * Debug.w(string)
+   * Debug.e(string)
 
 ## Requirements
 

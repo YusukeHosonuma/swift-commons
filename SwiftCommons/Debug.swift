@@ -8,7 +8,16 @@
 
 import Foundation
 
+typealias D = Debug
+
 class Debug {
+    
+    static var prefix = "🌟"
+
+    static var debugPrefix = "[Debug]"
+    static var infoPrefix  = "[Info]"
+    static var warnPrefix  = "[Warn]"
+    static var errorPrefix = "[Error]"
     
     private init() {}
     
@@ -18,8 +27,86 @@ class Debug {
         return NSDate().timeIntervalSinceDate(start)
     }
     
-    static func timePrint(label: String, process: () -> ()) {
-        let t = time(process)
-        print("\(label) \(t)")
+    static func timePrint(label: String = "", process: () -> ()) {
+            let t = String(format: "%.3f sec", time(process))
+            if label.isEmpty {
+                print("\(prefix)[Time] \(t)")
+            } else {
+                print("\(prefix)[Time] \(t) - \(label)")
+            }
+    }
+
+    static func debug(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            debugLog(string, levelPrefix: debugPrefix, line: line, file: file, function: function)
+    }
+    
+    static func info(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            debugLog(string, levelPrefix: infoPrefix, line: line, file: file, function: function)
+    }
+    
+    static func warn(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            debugLog(string, levelPrefix: warnPrefix, line: line, file: file, function: function)
+    }
+    
+    static func error(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            debugLog(string, levelPrefix: errorPrefix, line: line, file: file, function: function)
+    }
+    
+    // MARK:- Shortcuts
+    
+    static func t(label: String = "", process: () -> ()) {
+        timePrint(label, process: process)
+    }
+    
+    static func d(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            debug(string, line: line, file: file, function: function)
+    }
+    
+    static func i(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            info(string, line: line, file: file, function: function)
+    }
+    
+    static func w(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            warn(string, line: line, file: file, function: function)
+    }
+    
+    static func e(string: String,
+        line: Int = __LINE__,
+        file: String = __FILE__,
+        function: String = __FUNCTION__) {
+            error(string, line: line, file: file, function: function)
+    }
+ 
+    // MARK:- Private
+    
+    private static func debugLog(string: String,
+        levelPrefix: String,
+        line: Int,
+        file: String,
+        function: String) {
+            
+            let filename = file.split("/").last ?? file
+            print("\(prefix)\(levelPrefix) \(string) - L\(line) \(function) @ \(filename)")
     }
 }
