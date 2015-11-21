@@ -111,6 +111,9 @@ dispatchAsync(.Default) {
  * static func instantiateXib() -> Self
  * static func instantiateXib(bundle bundle: NSBundle?) -> Self
 
+### Debug helpers
+ * Debug.time(process: () -> ()) -> NSTimeInterval
+ * Debug.timePrint(label: String, process: () -> ())
 
 ## Requirements
 
