@@ -39,8 +39,9 @@ dispatchAsync(.Default) {
 * `reduce1(:(a: Element, b: Element) -> Element) -> Element`
 
 #### SequenceType
-* group() -> [[E]]
-* groupBy(condition: (E, E) -> Bool) -> [[E]]
+* group() -> [[Generator.Element]]
+* groupBy(condition: (Generator.Element, Generator.Element) -> Bool) -> [[Generator.Element]]
+* concat() -> [Generator.Element.Generator.Element]
 
 #### String
 * `* :Int -> String`
