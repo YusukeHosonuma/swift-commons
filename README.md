@@ -38,6 +38,10 @@ dispatchAsync(.Default) {
 * `forEach(:Element -> ())`
 * `reduce1(:(a: Element, b: Element) -> Element) -> Element`
 
+#### SequenceType
+* group() -> [[E]]
+* groupBy(condition: (E, E) -> Bool) -> [[E]]
+
 #### String
 * `* :Int -> String`
 * `length: Int`
