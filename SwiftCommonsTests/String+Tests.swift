@@ -90,6 +90,27 @@ class String_Tests: XCTestCase {
             "apple-banana-orange".split("-"))
     }
     
+    func test_mask() {
+        XCTAssertEqual("password".mask(), "********")
+        XCTAssertEqual("password".mask("$"), "$$$$$$$$")
+    }
+    
+    func test_maskHead() {
+        XCTAssertEqual("".maskHead(count: 0), "")
+        XCTAssertEqual("password".maskHead(count: 0),  "password")
+        XCTAssertEqual("password".maskHead(count: 5),  "*****ord")
+        XCTAssertEqual("password".maskHead(count: 10), "********")
+        XCTAssertEqual("password".maskHead("-", count: 4),  "----word")
+    }
+    
+    func test_maskTail() {
+        XCTAssertEqual("".maskTail(count: 0), "")
+        XCTAssertEqual("password".maskTail(count: 0),  "password")
+        XCTAssertEqual("password".maskTail(count: 5),  "pas*****")
+        XCTAssertEqual("password".maskTail(count: 10), "********")
+        XCTAssertEqual("password".maskTail("-", count: 4),  "pass----")
+    }
+    
     func test_urlEncode_urlDecode() {
         
         let string = "http://hogehoge.com/?param=!*'();:@&=+$,/?%#[]"

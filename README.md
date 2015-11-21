@@ -55,6 +55,12 @@ dispatchAsync(.Default) {
 * `urlEncode() -> String`
 * `urlDecode() -> String`
 * `toDate(format format: String) -> NSDate?`
+* mask() -> String
+* mask(mask: String) -> String
+* maskHead(count count: Int) -> String
+* maskHead(mask: String, count: Int) -> String
+* maskTail(count count: Int) -> String
+* maskTail(mask: String, count: Int) -> String
 
 #### NSDate
 * `NSDate.fromRFC3339String(string: String) -> NSDate?`

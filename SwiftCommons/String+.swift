@@ -57,6 +57,39 @@ extension String {
         return componentsSeparatedByString(separator)
     }
     
+    func mask() -> String {
+        let mask = Character("*")
+        return String(count: self.length, repeatedValue: mask)
+    }
+
+    func mask(mask: String) -> String {
+        return mask * self.length
+    }
+    
+    func maskHead(count count: Int) -> String {
+        return self.maskHead("*", count: count)
+    }
+
+    func maskHead(mask: String, count: Int) -> String {
+        guard count < self.length else {
+            return self.mask()
+        }
+        let mask = Character(mask)
+        return String(count: count, repeatedValue: mask) + self[count..<self.length]
+    }
+    
+    func maskTail(count count: Int) -> String {
+        return self.maskTail("*", count: count)
+    }
+    
+    func maskTail(mask: String, count: Int) -> String {
+        guard count < self.length else {
+            return self.mask()
+        }
+        let mask = Character(mask)
+        return self[0..<(self.length - count)] + String(count: count, repeatedValue: mask)
+    }
+    
     func urlEncode() -> String {
         return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
     }
