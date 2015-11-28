@@ -37,6 +37,7 @@ dispatchAsync(.Default) {
 * drop(:Int) -> Array
 * forEach(:Element -> ())
 * reduce1(:(a: Element, b: Element) -> Element) -> Element
+* mutating func insertHead(e: Element)
 
 #### SequenceType
 * replaceLast(replacement: Generator.Element) -> [Generator.Element]
