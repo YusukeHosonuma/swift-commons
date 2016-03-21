@@ -66,6 +66,14 @@ extension String {
         }
     }
     
+    func first() -> String {
+        return head(1)
+    }
+    
+    func last() -> String {
+        return tail(1)
+    }
+    
     func reverse() -> String {
         return String(self.characters.reverse())
     }

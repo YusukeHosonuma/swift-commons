@@ -108,6 +108,16 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("Hello".tail(6), "Hello") // over length
     }
     
+    func test_first() {
+        XCTAssertEqual("Hello".first(), "H")
+        XCTAssertEqual("".first(), "")
+    }
+    
+    func test_last() {
+        XCTAssertEqual("Hello".last(), "o")
+        XCTAssertEqual("".last(), "")
+    }
+    
     func test_reverse() {
         XCTAssertEqual("Hello".reverse(), "olleH")
         XCTAssertEqual("".reverse(), "")
