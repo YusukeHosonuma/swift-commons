@@ -47,12 +47,24 @@ dispatchAsync(.Default) {
 
 #### String
 * * :Int -> String
+* ==* (left: String, right: String) -> Bool
+* func =~ (left: String, right: String) -> Bool
 * length: Int
 * subscript(i: Int) -> String
 * subscript(range: Range<Int>) -> String
+* map<T>(f: String -> T) -> [T]
+* filter(f: String -> Bool) -> String
+* reduce<T>(initial: T, f: (T, String) -> T) -> T
+* equalsIgnoreCase(string: String) -> Bool
+* func match(pattern: String) -> Bool
 * head(length: Int) -> String
 * tail(length: Int) -> String
+* first() -> String
+* last() -> String
 * reverse() -> String
+* remove(string: String) -> String
+* replace(string: String, to: String) -> String
+* swapcase() -> String
 * trim() -> String
 * trimn() -> String
 * split(separator: String) -> [String]
@@ -65,6 +77,9 @@ dispatchAsync(.Default) {
 * maskHead(mask: String, count: Int) -> String
 * maskTail(count count: Int) -> String
 * maskTail(mask: String, count: Int) -> String
+
+#### Bool
+* stringValue() -> String
 
 #### NSDate
 * NSDate.fromRFC3339String(string: String) -> NSDate?
@@ -132,7 +147,7 @@ dispatchAsync(.Default) {
 
 ## Requirements
 
-Swift 2.0 / iOS 8.0+
+Swift 2.1 / iOS 8.0+
 
 ## License
 
