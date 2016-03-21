@@ -36,6 +36,22 @@ extension String {
         }
     }
     
+    func filter(f: String -> Bool) -> String {
+        let result = self.characters.filter { (c: Character) -> Bool in
+            let s = String(c)
+            return f(s)
+        }
+        return String(result)
+    }
+    
+    func reduce<T>(initial: T, f: (T, String) -> T) -> T {
+        let result = self.characters.reduce(initial) { (r: T, c: Character) -> T in
+            let s = String(c)
+            return f(r, s)
+        }
+        return result
+    }
+    
     func head(length: Int) -> String {
         return (length > self.length) ? self : self[0..<length]
     }

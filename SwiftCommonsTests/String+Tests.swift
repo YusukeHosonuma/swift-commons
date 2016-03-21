@@ -82,6 +82,20 @@ class String_Tests: XCTestCase {
             "12345".map{ Int($0) ?? 0 }.reduce(0, combine: +) , 15)
     }
     
+    func test_filter() {
+        
+        XCTAssertEqual(
+            "foo1baz2".filter{ Int($0) != nil },
+            "12")
+    }
+    
+    func test_reduce() {
+        
+        XCTAssertEqual(
+            "Hello".reduce(""){ $0.tail(1) == $1 ? $0 : $0 + $1 },
+            "Helo")
+    }
+    
     func test_head() {
         XCTAssertEqual("Hello".head(0), "")
         XCTAssertEqual("Hello".head(3), "Hel")
