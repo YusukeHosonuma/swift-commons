@@ -28,7 +28,14 @@ extension String {
     var length: Int {
         return characters.count
     }
-
+    
+    func map<T>(f: String -> T) -> [T] {
+        return self.characters.map { (c: Character) -> T in
+            let s = String(c)
+            return f(s)
+        }
+    }
+    
     func head(length: Int) -> String {
         return (length > self.length) ? self : self[0..<length]
     }
@@ -53,6 +60,16 @@ extension String {
     
     func replace(string: String, to: String) -> String {
         return self.stringByReplacingOccurrencesOfString(string, withString: to)
+    }
+    
+    func swapcase() -> String {
+        let result = self.characters.map { (c: Character) -> Character in
+            let s = String(c)
+            let l = s.lowercaseString
+            let u = s.uppercaseString
+            return (s == l) ? u.characters.first! : l.characters.first!
+        }
+        return String(result)
     }
     
     /**

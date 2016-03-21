@@ -72,6 +72,16 @@ class String_Tests: XCTestCase {
     // MARK: -
     // MARK: method
     
+    func test_map() {
+        
+        XCTAssertEqual(
+            "Hello".map{ "[" + $0 + "]" }.joinWithSeparator(""),
+            "[H][e][l][l][o]")
+
+        XCTAssertEqual(
+            "12345".map{ Int($0) ?? 0 }.reduce(0, combine: +) , 15)
+    }
+    
     func test_head() {
         XCTAssertEqual("Hello".head(0), "")
         XCTAssertEqual("Hello".head(3), "Hel")
@@ -97,6 +107,11 @@ class String_Tests: XCTestCase {
     func test_replace() {
         XCTAssertEqual("Hello".replace("ell", to: "ELL"), "HELLo")
         XCTAssertEqual("Hello".replace("l", to: "L"), "HeLLo")
+    }
+    
+    func test_swapcase() {
+        XCTAssertEqual("This is a Test".swapcase(), "tHIS IS A tEST")
+        XCTAssertEqual("".swapcase(), "")
     }
     
     func test_trim() {
