@@ -8,10 +8,15 @@
 
 import Foundation
 
-infix operator ==* {}
+infix operator ==* {} // short cut for equalsIgnoreCase()
+infix operator =~ {}  // short cut for match()
 
 func ==* (left: String, right: String) -> Bool {
     return left.equalsIgnoreCase(right)
+}
+
+func =~ (left: String, right: String) -> Bool {
+    return left.match(right)
 }
 
 func * (left: String, right: Int) -> String {
@@ -62,6 +67,16 @@ extension String {
         let s1 = self.lowercaseString
         let s2 = string.lowercaseString
         return s1 == s2
+    }
+    
+    func match(pattern: String) -> Bool {
+        do {
+            let regexp = try NSRegularExpression(pattern: pattern, options: [])
+            let matches = regexp.matchesInString(self, options: [], range: NSMakeRange(0, length))
+            return matches.count > 0
+        } catch {
+            return false
+        }
     }
     
     func head(length: Int) -> String {

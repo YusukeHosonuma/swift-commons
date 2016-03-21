@@ -105,6 +105,15 @@ class String_Tests: XCTestCase {
         XCTAssertFalse("ello" ==* "HELLO")
     }
     
+    func test_match() {
+        
+        XCTAssertTrue("Hello World".match("^H.+d$"))
+        XCTAssertFalse("Hello World.".match("^H.+d$"))
+        
+        XCTAssertTrue("Hello World" =~ "^H.+d$")
+        XCTAssertFalse("Hello World." =~ "^H.+d$")
+    }
+    
     func test_head() {
         XCTAssertEqual("Hello".head(0), "")
         XCTAssertEqual("Hello".head(3), "Hel")
