@@ -47,6 +47,14 @@ extension String {
         return String(self.characters.reverse())
     }
     
+    func remove(string: String) -> String {
+        return self.stringByReplacingOccurrencesOfString(string, withString: "")
+    }
+    
+    func replace(string: String, to: String) -> String {
+        return self.stringByReplacingOccurrencesOfString(string, withString: to)
+    }
+    
     /**
     Trim white space chars.
     

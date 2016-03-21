@@ -89,6 +89,16 @@ class String_Tests: XCTestCase {
         XCTAssertEqual("".reverse(), "")
     }
     
+    func test_remove() {
+        XCTAssertEqual("Hello".remove("ell"), "Ho")
+        XCTAssertEqual("Hello".remove("l"), "Heo")
+    }
+    
+    func test_replace() {
+        XCTAssertEqual("Hello".replace("ell", to: "ELL"), "HELLo")
+        XCTAssertEqual("Hello".replace("l", to: "L"), "HeLLo")
+    }
+    
     func test_trim() {
         XCTAssertEqual("hello".trim(), "hello")
         XCTAssertEqual(" hello ".trim(), "hello")
