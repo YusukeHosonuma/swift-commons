@@ -14,6 +14,8 @@
 		702B56141B8F5C950019617B /* UIViewController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56131B8F5C950019617B /* UIViewController+Tests.swift */; };
 		702B56161B8F5D9D0019617B /* UIViewTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56151B8F5D9D0019617B /* UIViewTestHelper.swift */; };
 		702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702B56181B8F5EE10019617B /* UIViewController+.swift */; };
+		7047AA7A1C9FC48E00A73270 /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047AA791C9FC48E00A73270 /* Bool+.swift */; };
+		7047AA7C1C9FC4A900A73270 /* Bool+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047AA7B1C9FC4A900A73270 /* Bool+Tests.swift */; };
 		705FDC211C0097A50065204C /* SequenceType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705FDC201C0097A50065204C /* SequenceType+.swift */; };
 		705FDC231C0098D10065204C /* SequenceTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705FDC221C0098D10065204C /* SequenceTypeTests.swift */; };
 		707278891BA1CC47002770EF /* NSDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707278881BA1CC47002770EF /* NSDate+.swift */; };
@@ -59,6 +61,8 @@
 		702B56131B8F5C950019617B /* UIViewController+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Tests.swift"; sourceTree = "<group>"; };
 		702B56151B8F5D9D0019617B /* UIViewTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTestHelper.swift; sourceTree = "<group>"; };
 		702B56181B8F5EE10019617B /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		7047AA791C9FC48E00A73270 /* Bool+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+.swift"; sourceTree = "<group>"; };
+		7047AA7B1C9FC4A900A73270 /* Bool+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+Tests.swift"; sourceTree = "<group>"; };
 		705FDC201C0097A50065204C /* SequenceType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SequenceType+.swift"; sourceTree = "<group>"; };
 		705FDC221C0098D10065204C /* SequenceTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTests.swift; sourceTree = "<group>"; };
 		707278881BA1CC47002770EF /* NSDate+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+.swift"; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
 				707278881BA1CC47002770EF /* NSDate+.swift */,
 				705FDC201C0097A50065204C /* SequenceType+.swift */,
+				7047AA791C9FC48E00A73270 /* Bool+.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				708E18ED1B8B722800B11067 /* String+Tests.swift */,
 				7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */,
 				705FDC221C0098D10065204C /* SequenceTypeTests.swift */,
+				7047AA7B1C9FC4A900A73270 /* Bool+Tests.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */,
 				70F0F4DE1C0962470041F07A /* MutableArray+.swift in Sources */,
 				7025D0381B8CA09E00D5C982 /* UIView+.swift in Sources */,
+				7047AA7A1C9FC48E00A73270 /* Bool+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7047AA7C1C9FC4A900A73270 /* Bool+Tests.swift in Sources */,
 				70F7F51F1BE51C1A00353E28 /* SampleViewController.swift in Sources */,
 				7025D0321B8C9FEC00D5C982 /* UIView+Tests.swift in Sources */,
 				70F5A85E1C00DA9400D6736B /* DebugTests.swift in Sources */,
