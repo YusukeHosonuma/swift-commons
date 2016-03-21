@@ -29,6 +29,24 @@ extension String {
         return characters.count
     }
 
+    func head(length: Int) -> String {
+        return (length > self.length) ? self : self[0..<length]
+    }
+    
+    func tail(length: Int) -> String {
+        if (length > self.length) {
+            return self
+        } else {
+            let from = self.length - length
+            let to   = from + length
+            return self[from..<to]
+        }
+    }
+    
+    func reverse() -> String {
+        return String(self.characters.reverse())
+    }
+    
     /**
     Trim white space chars.
     

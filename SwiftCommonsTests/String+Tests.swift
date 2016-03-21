@@ -72,6 +72,23 @@ class String_Tests: XCTestCase {
     // MARK: -
     // MARK: method
     
+    func test_head() {
+        XCTAssertEqual("Hello".head(0), "")
+        XCTAssertEqual("Hello".head(3), "Hel")
+        XCTAssertEqual("Hello".head(6), "Hello") // over length
+    }
+    
+    func test_tail() {
+        XCTAssertEqual("Hello".tail(0), "")
+        XCTAssertEqual("Hello".tail(3), "llo")
+        XCTAssertEqual("Hello".tail(6), "Hello") // over length
+    }
+    
+    func test_reverse() {
+        XCTAssertEqual("Hello".reverse(), "olleH")
+        XCTAssertEqual("".reverse(), "")
+    }
+    
     func test_trim() {
         XCTAssertEqual("hello".trim(), "hello")
         XCTAssertEqual(" hello ".trim(), "hello")

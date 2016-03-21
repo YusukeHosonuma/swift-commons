@@ -50,6 +50,9 @@ dispatchAsync(.Default) {
 * length: Int
 * subscript(i: Int) -> String
 * subscript(range: Range<Int>) -> String
+* head(length: Int) -> String
+* tail(length: Int) -> String
+* reverse() -> String
 * trim() -> String
 * trimn() -> String
 * split(separator: String) -> [String]
