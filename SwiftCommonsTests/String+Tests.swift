@@ -95,6 +95,15 @@ class String_Tests: XCTestCase {
             "Hello".reduce(""){ $0.tail(1) == $1 ? $0 : $0 + $1 },
             "Helo")
     }
+
+    func test_equalsIgnoreCase() {
+        
+        XCTAssertTrue("hello".equalsIgnoreCase("HELLO"))
+        XCTAssertFalse("ello".equalsIgnoreCase("HELLO"))
+
+        XCTAssertTrue("hello" ==* "HELLO")
+        XCTAssertFalse("ello" ==* "HELLO")
+    }
     
     func test_head() {
         XCTAssertEqual("Hello".head(0), "")

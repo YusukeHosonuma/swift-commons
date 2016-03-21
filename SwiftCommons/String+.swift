@@ -8,6 +8,12 @@
 
 import Foundation
 
+infix operator ==* {}
+
+func ==* (left: String, right: String) -> Bool {
+    return left.equalsIgnoreCase(right)
+}
+
 func * (left: String, right: Int) -> String {
     return (1...right).map { _ -> String in left }.joinWithSeparator("")
 }
@@ -50,6 +56,12 @@ extension String {
             return f(r, s)
         }
         return result
+    }
+    
+    func equalsIgnoreCase(string: String) -> Bool {
+        let s1 = self.lowercaseString
+        let s2 = string.lowercaseString
+        return s1 == s2
     }
     
     func head(length: Int) -> String {
