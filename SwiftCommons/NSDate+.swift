@@ -8,7 +8,15 @@
 
 import Foundation
 
-extension NSDate {
+public func < (lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.compare(rhs) == .OrderedAscending
+}
+
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.isEqualToDate(rhs)
+}
+
+extension NSDate : Comparable {
 
     /// RFC3339 format for NSDate.
     private class var kRFC3339Format: String {

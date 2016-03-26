@@ -19,6 +19,25 @@ class NSDate_Tests: XCTestCase {
         super.tearDown()
     }
     
+    func test_operator() {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        
+        let d1 = formatter.dateFromString("2016/03/01 00:00:00")
+        let d2 = formatter.dateFromString("2016/03/01 00:00:00")
+        let d3 = formatter.dateFromString("2016/03/02 00:00:00")
+        
+        XCTAssertTrue(d1 == d2)
+        XCTAssertTrue(d1 != d3)
+        
+        XCTAssertTrue (d1 < d3)
+        XCTAssertFalse(d1 < d2)
+        
+        XCTAssertTrue (d3 > d1)
+        XCTAssertFalse(d2 > d1)
+    }
+    
     func test_fromRFC3339String() {
 
         let dc = NSDateComponents()

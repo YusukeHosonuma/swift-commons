@@ -81,7 +81,7 @@ dispatchAsync(.Default) {
 #### Bool
 * stringValue() -> String
 
-#### NSDate
+#### NSDate : Comparable
 * NSDate.fromRFC3339String(string: String) -> NSDate?
 * NSDate.toRFC3339String(date: NSDate) -> String?
 * unixtime() -> NSTimeInterval
