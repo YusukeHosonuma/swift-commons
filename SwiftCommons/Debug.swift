@@ -37,30 +37,30 @@ class Debug {
     }
 
     static func debug(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             debugLog(string, levelPrefix: debugPrefix, line: line, file: file, function: function)
     }
     
     static func info(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             debugLog(string, levelPrefix: infoPrefix, line: line, file: file, function: function)
     }
     
     static func warn(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             debugLog(string, levelPrefix: warnPrefix, line: line, file: file, function: function)
     }
     
     static func error(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             debugLog(string, levelPrefix: errorPrefix, line: line, file: file, function: function)
     }
     
@@ -71,30 +71,30 @@ class Debug {
     }
     
     static func d(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             debug(string, line: line, file: file, function: function)
     }
     
     static func i(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             info(string, line: line, file: file, function: function)
     }
     
     static func w(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             warn(string, line: line, file: file, function: function)
     }
     
     static func e(string: String,
-        line: Int = __LINE__,
-        file: String = __FILE__,
-        function: String = __FUNCTION__) {
+        line: Int = #line,
+        file: String = #file,
+        function: String = #function) {
             error(string, line: line, file: file, function: function)
     }
  

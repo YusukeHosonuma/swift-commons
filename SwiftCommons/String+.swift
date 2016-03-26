@@ -26,14 +26,14 @@ func * (left: String, right: Int) -> String {
 extension String {
     
     subscript(i: Int) -> String {
-        let range = Range<String.Index>(start: startIndex.advancedBy(i), end: startIndex.advancedBy(i + 1))
+        let range = startIndex.advancedBy(i)..<startIndex.advancedBy(i + 1)
         return substringWithRange(range)
     }
     
     subscript(range: Range<Int>) -> String {
         let start = startIndex.advancedBy(range.startIndex)
         let end   = startIndex.advancedBy(range.endIndex)
-        return substringWithRange(Range<Index>(start: start, end: end))
+        return substringWithRange(start..<end)
     }
     
     var length: Int {
