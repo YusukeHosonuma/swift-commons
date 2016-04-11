@@ -23,6 +23,7 @@ func * (left: String, right: Int) -> String {
     return (1...right).map { _ -> String in left }.joinWithSeparator("")
 }
 
+// subscript
 extension String {
     
     subscript(i: Int) -> String {
@@ -35,10 +36,18 @@ extension String {
         let end   = startIndex.advancedBy(range.endIndex)
         return substringWithRange(start..<end)
     }
+}
+
+// property
+extension String {
     
     var length: Int {
         return characters.count
     }
+}
+
+// function
+extension String {
     
     func map<T>(f: String -> T) -> [T] {
         return self.characters.map { (c: Character) -> T in
