@@ -72,6 +72,18 @@ class String_Tests: XCTestCase {
     // MARK: -
     // MARK: method
     
+    func test_with() {
+        
+        XCTAssertTrue("key".with("value") == ("key", "value"))
+        XCTAssertTrue(("key" => "value") == ("key", "value"))
+        
+        let nilString: String? = nil
+        
+        let pair = "key".with(nilString)
+        XCTAssertEqual(pair.0, "key")
+        XCTAssertNil  (pair.1)
+    }
+    
     func test_map() {
         
         XCTAssertEqual(

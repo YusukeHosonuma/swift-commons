@@ -10,6 +10,7 @@ import Foundation
 
 infix operator ==* {} // short cut for equalsIgnoreCase()
 infix operator =~ {}  // short cut for match()
+infix operator => {}  // short cut for with()
 
 func ==* (left: String, right: String) -> Bool {
     return left.equalsIgnoreCase(right)
@@ -19,9 +20,14 @@ func =~ (left: String, right: String) -> Bool {
     return left.match(right)
 }
 
+func => <T>(left: String, right: T) -> (String, T) {
+    return left.with(right)
+}
+
 func * (left: String, right: Int) -> String {
     return (1...right).map { _ -> String in left }.joinWithSeparator("")
 }
+
 
 // subscript
 extension String {
@@ -48,6 +54,10 @@ extension String {
 
 // function
 extension String {
+    
+    func with<T>(value: T) -> (String, T) {
+        return (self, value)
+    }
     
     func map<T>(f: String -> T) -> [T] {
         return self.characters.map { (c: Character) -> T in
