@@ -22,7 +22,7 @@ class UIColor_Tests: XCTestCase {
     func test_fromHex() {
         
         let c = UIColor.fromHex("FF0000")
-        print(c)
+        print(c as Any)
         
         let c2 = UIColor.red
         print(c2)
