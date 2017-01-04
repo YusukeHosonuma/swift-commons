@@ -61,7 +61,7 @@ class UIView_Tests: XCTestCase {
     
     func test_move() {
         
-        var view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
+        let view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
         
         // +=
         view += CGPoint(x: 5.0, y: 15.0)
@@ -76,7 +76,7 @@ class UIView_Tests: XCTestCase {
     
     func test_resize() {
         
-        var view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
+        let view = UIView(frame: CGRect(x: 10.0, y: 20.0, width: 40.0, height: 80.0))
         
         // +=
         view += CGSize(width: 5.0, height: 15.0)
