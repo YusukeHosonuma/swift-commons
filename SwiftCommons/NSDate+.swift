@@ -12,7 +12,7 @@ public func < (lhs: Date, rhs: Date) -> Bool {
     return lhs.compare(rhs) == .orderedAscending
 }
 
-extension Date {
+public extension Date {
 
     /// RFC3339 format for NSDate.
     fileprivate static var kRFC3339Format: String {
@@ -25,7 +25,7 @@ extension Date {
     - parameter string : The string to parse.
     - returns : A date.
     */
-    static func fromRFC3339String(_ string: String) -> Date? {
+    public static func fromRFC3339String(_ string: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = kRFC3339Format
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -39,7 +39,7 @@ extension Date {
     - parameter date : The date to string.
     - returns : RFC3339 string. (Timezone string is depends to defaultTimeZone)
     */
-    static func toRFC3339String(_ date: Date) -> String? {
+    public static func toRFC3339String(_ date: Date) -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = kRFC3339Format
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -47,11 +47,11 @@ extension Date {
         return formatter.string(from: date)
     }
     
-    func unixtime() -> TimeInterval {
+    public func unixtime() -> TimeInterval {
         return self.timeIntervalSince1970
     }
     
-    static func fromUnixtime(_ unixtime: TimeInterval) -> Date {
+    public static func fromUnixtime(_ unixtime: TimeInterval) -> Date {
         return Date(timeIntervalSince1970: unixtime)
     }
 }

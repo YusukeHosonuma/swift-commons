@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Bool {
+public extension Bool {
     
-    func stringValue() -> String {
+    public func stringValue() -> String {
         return self ? "true" : "false"
     }
 }

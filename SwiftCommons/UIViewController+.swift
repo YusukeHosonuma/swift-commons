@@ -8,7 +8,7 @@
 
 extension UIViewController {
 
-    func exclusiveTouches() {
+    public func exclusiveTouches() {
         self.view.applyAllViews { $0.isExclusiveTouch = true }
     }
 }

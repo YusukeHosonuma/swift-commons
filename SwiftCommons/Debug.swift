@@ -8,26 +8,26 @@
 
 import Foundation
 
-typealias D = Debug
+public typealias D = Debug
 
-class Debug {
+public class Debug {
     
-    static var prefix = "🌟"
+    public static var prefix = "🌟"
 
-    static var debugPrefix = "[Debug]"
-    static var infoPrefix  = "[Info]"
-    static var warnPrefix  = "[Warn]"
-    static var errorPrefix = "[Error]"
+    private static var debugPrefix = "[Debug]"
+    private static var infoPrefix  = "[Info]"
+    private static var warnPrefix  = "[Warn]"
+    private static var errorPrefix = "[Error]"
     
     fileprivate init() {}
     
-    static func time(_ process: () -> ()) -> TimeInterval {
+    public static func time(_ process: () -> ()) -> TimeInterval {
         let start = Date()
         process()
         return Date().timeIntervalSince(start)
     }
     
-    static func timePrint(_ label: String = "", process: () -> ()) {
+    public static func timePrint(_ label: String = "", process: () -> ()) {
             let t = String(format: "%.3f sec", time(process))
             if label.isEmpty {
                 print("\(prefix)[Time] \(t)")
@@ -36,28 +36,28 @@ class Debug {
             }
     }
 
-    static func debug(_ string: String,
+    public static func debug(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             debugLog(string, levelPrefix: debugPrefix, line: line, file: file, function: function)
     }
     
-    static func info(_ string: String,
+    public static func info(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             debugLog(string, levelPrefix: infoPrefix, line: line, file: file, function: function)
     }
     
-    static func warn(_ string: String,
+    public static func warn(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             debugLog(string, levelPrefix: warnPrefix, line: line, file: file, function: function)
     }
     
-    static func error(_ string: String,
+    public static func error(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
@@ -66,32 +66,32 @@ class Debug {
     
     // MARK:- Shortcuts
     
-    static func t(_ label: String = "", process: () -> ()) {
+    public static func t(_ label: String = "", process: () -> ()) {
         timePrint(label, process: process)
     }
     
-    static func d(_ string: String,
+    public static func d(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             debug(string, line: line, file: file, function: function)
     }
     
-    static func i(_ string: String,
+    public static func i(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             info(string, line: line, file: file, function: function)
     }
     
-    static func w(_ string: String,
+    public static func w(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {
             warn(string, line: line, file: file, function: function)
     }
     
-    static func e(_ string: String,
+    public static func e(_ string: String,
         line: Int = #line,
         file: String = #file,
         function: String = #function) {

@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
-    mutating func insertHead(_ e: Element) {
+    public mutating func insertHead(_ e: Element) {
         self.insert(e, at: 0)
     }
 }
