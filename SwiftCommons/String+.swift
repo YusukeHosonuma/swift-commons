@@ -8,9 +8,9 @@
 
 import Foundation
 
-infix operator ==* {} // short cut for equalsIgnoreCase()
-infix operator =~ {}  // short cut for match()
-infix operator => {}  // short cut for with()
+infix operator ==* // short cut for equalsIgnoreCase()
+infix operator =~ // short cut for match()
+infix operator => // short cut for with()
 
 func ==* (left: String, right: String) -> Bool {
     return left.equalsIgnoreCase(right)
@@ -25,7 +25,7 @@ func => <T>(left: String, right: T) -> (String, T) {
 }
 
 func * (left: String, right: Int) -> String {
-    return (1...right).map { _ -> String in left }.joinWithSeparator("")
+    return (1...right).map { _ -> String in left }.joined(separator: "")
 }
 
 
@@ -33,14 +33,14 @@ func * (left: String, right: Int) -> String {
 extension String {
     
     subscript(i: Int) -> String {
-        let range = startIndex.advancedBy(i)..<startIndex.advancedBy(i + 1)
-        return substringWithRange(range)
+        let range = characters.index(startIndex, offsetBy: i)..<characters.index(startIndex, offsetBy: i + 1)
+        return substring(with: range)
     }
     
     subscript(range: Range<Int>) -> String {
-        let start = startIndex.advancedBy(range.startIndex)
-        let end   = startIndex.advancedBy(range.endIndex)
-        return substringWithRange(start..<end)
+        let start = characters.index(startIndex, offsetBy: range.lowerBound)
+        let end   = characters.index(startIndex, offsetBy: range.upperBound)
+        return substring(with: start..<end)
     }
 }
 
@@ -55,18 +55,18 @@ extension String {
 // function
 extension String {
     
-    func with<T>(value: T) -> (String, T) {
+    func with<T>(_ value: T) -> (String, T) {
         return (self, value)
     }
     
-    func map<T>(f: String -> T) -> [T] {
+    func map<T>(_ f: (String) -> T) -> [T] {
         return self.characters.map { (c: Character) -> T in
             let s = String(c)
             return f(s)
         }
     }
     
-    func filter(f: String -> Bool) -> String {
+    func filter(_ f: (String) -> Bool) -> String {
         let result = self.characters.filter { (c: Character) -> Bool in
             let s = String(c)
             return f(s)
@@ -74,7 +74,7 @@ extension String {
         return String(result)
     }
     
-    func reduce<T>(initial: T, f: (T, String) -> T) -> T {
+    func reduce<T>(_ initial: T, f: (T, String) -> T) -> T {
         let result = self.characters.reduce(initial) { (r: T, c: Character) -> T in
             let s = String(c)
             return f(r, s)
@@ -82,27 +82,27 @@ extension String {
         return result
     }
     
-    func equalsIgnoreCase(string: String) -> Bool {
-        let s1 = self.lowercaseString
-        let s2 = string.lowercaseString
+    func equalsIgnoreCase(_ string: String) -> Bool {
+        let s1 = self.lowercased()
+        let s2 = string.lowercased()
         return s1 == s2
     }
     
-    func match(pattern: String) -> Bool {
+    func match(_ pattern: String) -> Bool {
         do {
             let regexp = try NSRegularExpression(pattern: pattern, options: [])
-            let matches = regexp.matchesInString(self, options: [], range: NSMakeRange(0, length))
+            let matches = regexp.matches(in: self, options: [], range: NSMakeRange(0, length))
             return matches.count > 0
         } catch {
             return false
         }
     }
     
-    func head(length: Int) -> String {
+    func head(_ length: Int) -> String {
         return (length > self.length) ? self : self[0..<length]
     }
     
-    func tail(length: Int) -> String {
+    func tail(_ length: Int) -> String {
         if (length > self.length) {
             return self
         } else {
@@ -121,22 +121,22 @@ extension String {
     }
     
     func reverse() -> String {
-        return String(self.characters.reverse())
+        return String(self.characters.reversed())
     }
     
-    func remove(string: String) -> String {
-        return self.stringByReplacingOccurrencesOfString(string, withString: "")
+    func remove(_ string: String) -> String {
+        return self.replacingOccurrences(of: string, with: "")
     }
     
-    func replace(string: String, to: String) -> String {
-        return self.stringByReplacingOccurrencesOfString(string, withString: to)
+    func replace(_ string: String, to: String) -> String {
+        return self.replacingOccurrences(of: string, with: to)
     }
     
     func swapcase() -> String {
         let result = self.characters.map { (c: Character) -> Character in
             let s = String(c)
-            let l = s.lowercaseString
-            let u = s.uppercaseString
+            let l = s.lowercased()
+            let u = s.uppercased()
             return (s == l) ? u.characters.first! : l.characters.first!
         }
         return String(result)
@@ -148,7 +148,7 @@ extension String {
     - returns: Trimed string.
      */
     func trim() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespaces)
     }
     
     /**
@@ -157,7 +157,7 @@ extension String {
     - returns: Trimed string.
     */
     func trimn() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     /**
@@ -166,49 +166,49 @@ extension String {
     - parameter separator: separator string
     - returns: [String]
     */
-    func split(separator: String) -> [String] {
-        return componentsSeparatedByString(separator)
+    func split(_ separator: String) -> [String] {
+        return components(separatedBy: separator)
     }
     
     func mask() -> String {
         let mask = Character("*")
-        return String(count: self.length, repeatedValue: mask)
+        return String(repeating: String(mask), count: self.length)
     }
 
-    func mask(mask: String) -> String {
+    func mask(_ mask: String) -> String {
         return mask * self.length
     }
     
-    func maskHead(count count: Int) -> String {
+    func maskHead(count: Int) -> String {
         return self.maskHead("*", count: count)
     }
 
-    func maskHead(mask: String, count: Int) -> String {
+    func maskHead(_ mask: String, count: Int) -> String {
         guard count < self.length else {
             return self.mask()
         }
         let mask = Character(mask)
-        return String(count: count, repeatedValue: mask) + self[count..<self.length]
+        return String(repeating: String(mask), count: count) + self[count..<self.length]
     }
     
-    func maskTail(count count: Int) -> String {
+    func maskTail(count: Int) -> String {
         return self.maskTail("*", count: count)
     }
     
-    func maskTail(mask: String, count: Int) -> String {
+    func maskTail(_ mask: String, count: Int) -> String {
         guard count < self.length else {
             return self.mask()
         }
         let mask = Character(mask)
-        return self[0..<(self.length - count)] + String(count: count, repeatedValue: mask)
+        return self[0..<(self.length - count)] + String(repeating: String(mask), count: count)
     }
     
     func urlEncode() -> String {
-        return stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
+        return addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)!
     }
     
     func urlDecode() -> String {
-        return stringByRemovingPercentEncoding!
+        return self.removingPercentEncoding!
     }
     
     /**
@@ -219,24 +219,24 @@ extension String {
     - parameter language : location identifier.
     - parameter timeZone : time zone.
     */
-    func toDate(format format: String,
-                     calendar: String = NSCalendarIdentifierGregorian,
-                     language: String = "en",
-                     timeZone: String = "GMT") -> NSDate? {
+    func toDate(format: String,
+                calendar: Calendar.Identifier = Calendar.Identifier.gregorian,
+                language: String = "en",
+                timeZone: String = "GMT") -> Date? {
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = format
             
         //set calendar
-        formatter.calendar = NSCalendar(calendarIdentifier: calendar)
+        formatter.calendar = Calendar(identifier: calendar)
         
         //set locale
-        formatter.locale = NSLocale(localeIdentifier: language)
+        formatter.locale = Locale(identifier: language)
         
         //set timeZone
-        formatter.timeZone = NSTimeZone(name: timeZone)
+        formatter.timeZone = TimeZone(identifier: timeZone)
         
-        return formatter.dateFromString(self)
+        return formatter.date(from: self)
     }
 
 }

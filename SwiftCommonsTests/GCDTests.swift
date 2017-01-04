@@ -21,72 +21,72 @@ class GCDTests: XCTestCase {
     
     func test_dispatchAfter() {
         
-        let expect = expectationWithDescription("")
+        let expect = expectation(description: "")
         dispatchAfter(delay: 0.1) {
             expect.fulfill()
         }
-        waitForExpectationsWithTimeout(1.0, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
     
     func test_dispatchAsync() {
         
-        let highDefault = expectationWithDescription("")
-        dispatchAsync(.High) {
+        let highDefault = expectation(description: "")
+        dispatchAsync(.high) {
             highDefault.fulfill()
         }
         
-        let expectDefault = expectationWithDescription("")
-        dispatchAsync(.Default) {
+        let expectDefault = expectation(description: "")
+        dispatchAsync(.default) {
             expectDefault.fulfill()
         }
         
-        let expectLow = expectationWithDescription("")
-        dispatchAsync(.Low) {
+        let expectLow = expectation(description: "")
+        dispatchAsync(.low) {
             expectLow.fulfill()
         }
         
-        let expectBackground = expectationWithDescription("")
-        dispatchAsync(.Background) {
+        let expectBackground = expectation(description: "")
+        dispatchAsync(.background) {
             expectBackground.fulfill()
         }
         
-        let expectMain = expectationWithDescription("")
-        dispatchAsync(.Main) {
+        let expectMain = expectation(description: "")
+        dispatchAsync(.main) {
             expectMain.fulfill()
         }
         
-        waitForExpectationsWithTimeout(1.0, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
     
     func test_dispatchSync() {
         
-        let highDefault = expectationWithDescription("")
-        dispatchSync(.High) {
+        let highDefault = expectation(description: "")
+        dispatchSync(.high) {
             highDefault.fulfill()
         }
         
-        let expectDefault = expectationWithDescription("")
-        dispatchSync(.Default) {
+        let expectDefault = expectation(description: "")
+        dispatchSync(.default) {
             expectDefault.fulfill()
         }
         
-        let expectLow = expectationWithDescription("")
-        dispatchSync(.Low) {
+        let expectLow = expectation(description: "")
+        dispatchSync(.low) {
             expectLow.fulfill()
         }
         
-        let expectBackground = expectationWithDescription("")
-        dispatchSync(.Background) {
+        let expectBackground = expectation(description: "")
+        dispatchSync(.background) {
             expectBackground.fulfill()
         }
         
-        let expectMain = expectationWithDescription("")
-        dispatchAsync(.Default) {
-            dispatchSync(.Main) {
+        let expectMain = expectation(description: "")
+        dispatchAsync(.default) {
+            dispatchSync(.main) {
                 expectMain.fulfill()
             }
         }
         
-        waitForExpectationsWithTimeout(1.0, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 }

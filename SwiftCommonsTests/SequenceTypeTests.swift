@@ -9,6 +9,11 @@
 import XCTest
 @testable import SwiftCommons
 
+func XCTAssertEqualArray<T: Equatable>(_ e1: [[T]], _ e2: [[T]]) {
+    let isEqual = zip(e1, e2).reduce(true) { $0 && ($1.0 == $1.1) }
+    XCTAssertTrue(isEqual, "\(e1) is not equal to \(e2)")
+}
+
 class SequenceTypeTests: XCTestCase {
     
     override func setUp() {
@@ -29,10 +34,12 @@ class SequenceTypeTests: XCTestCase {
         var array: [Int]
         
         array = [1, 1 ,1, 2, 3, 3]
-        XCTAssertEqual(array.group(), [[1, 1, 1], [2], [3, 3]])
+        XCTAssertEqualArray(array.group(), [[1, 1, 1], [2], [3, 3]])
+        
+        XCTAssertEqualArray([[1, 2, 3]], [[1, 2, 3]])
         
         array = []
-        XCTAssertEqual(array.group(), [])
+        XCTAssertEqualArray(array.group(), [])
     }
     
     func test_groupBy() {
@@ -40,11 +47,11 @@ class SequenceTypeTests: XCTestCase {
         var array: [Int]
         
         array = [1, 1 ,1, 2, 3, 3]
-        XCTAssertEqual(array.groupBy(==), [[1, 1, 1], [2], [3, 3]])
-        XCTAssertEqual(array.groupBy(!=), [[1], [1], [1, 2, 3], [3]])
+        XCTAssertEqualArray(array.groupBy(==), [[1, 1, 1], [2], [3, 3]])
+        XCTAssertEqualArray(array.groupBy(!=), [[1], [1], [1, 2, 3], [3]])
         
         array = []
-        XCTAssertEqual(array.groupBy(==), [])
+        XCTAssertEqualArray(array.groupBy(==), [])
     }
     
     func test_concat() {

@@ -87,11 +87,11 @@ class String_Tests: XCTestCase {
     func test_map() {
         
         XCTAssertEqual(
-            "Hello".map{ "[" + $0 + "]" }.joinWithSeparator(""),
+            "Hello".map{ "[" + $0 + "]" }.joined(separator: ""),
             "[H][e][l][l][o]")
 
         XCTAssertEqual(
-            "12345".map{ Int($0) ?? 0 }.reduce(0, combine: +) , 15)
+            "12345".map{ Int($0) ?? 0 }.reduce(0, +) , 15)
     }
     
     func test_filter() {
@@ -220,9 +220,9 @@ class String_Tests: XCTestCase {
     
     func test_toDate() {
         
-        func date(y y:Int, M:Int, d:Int, h:Int = 0, m:Int = 0, s:Int = 0, tz:String? = "GMT") -> NSDate? {
-            let dateComp = NSDateComponents()
-            dateComp.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        func date(y:Int, M:Int, d:Int, h:Int = 0, m:Int = 0, s:Int = 0, tz:String? = "GMT") -> Date? {
+            var dateComp = DateComponents()
+            dateComp.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
             dateComp.year = y
             dateComp.month = M
             dateComp.day = d
@@ -230,15 +230,18 @@ class String_Tests: XCTestCase {
             dateComp.minute = m
             dateComp.second = s
             if let _ = tz {
-                dateComp.timeZone = NSTimeZone(name: tz!)
+                dateComp.timeZone = TimeZone(identifier: tz!)
             }
             
             return dateComp.date
         }
         
-        func assertTest(d1:NSDate?, _ d2:NSDate?) {
-//            print("toDate test \n d1 = \(d1),\n d2 = \(d2)\n")
-            XCTAssertEqual(d1!, d2!)
+        func assertTest(_ d1: Date?, _ d2: Date?) {
+            guard let date1 = d1, let date2 = d2 else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(date1, date2)
         }
         
         /* Case 1 */
@@ -258,11 +261,11 @@ class String_Tests: XCTestCase {
         /* Case 3
          * Japanaese Calendar 
          */
-        assertTest("平成27年 9月15日 22時30分30秒".toDate(format: "GGGyy年 M月dd日 H時mm分ss秒", calendar: NSCalendarIdentifierJapanese, language:"ja"),
+        assertTest("平成27年 9月15日 22時30分30秒".toDate(format: "GGGyy年 M月dd日 H時mm分ss秒", calendar: Calendar.Identifier.japanese, language:"ja"),
             date(y: 2015, M: 9, d: 15, h:22, m:30, s:30))
-        assertTest("H27年 9月15日 22時30分30秒".toDate(format: "GGGGGyy年 M月dd日 H時mm分ss秒", calendar: NSCalendarIdentifierJapanese),
+        assertTest("H27年 9月15日 22時30分30秒".toDate(format: "GGGGGyy年 M月dd日 H時mm分ss秒", calendar: Calendar.Identifier.japanese),
             date(y: 2015, M: 9, d: 15, h:22, m:30, s:30))
-        assertTest("H27 9/15 22:30:30 Japan".toDate(format: "GGGGGyy M/dd H:mm:ss VV", calendar: NSCalendarIdentifierJapanese),
+        assertTest("H27 9/15 22:30:30 Japan".toDate(format: "GGGGGyy M/dd H:mm:ss VV", calendar: Calendar.Identifier.japanese),
             date(y: 2015, M: 9, d: 15, h:22, m:30, s:30, tz:"JST"))
 
     }

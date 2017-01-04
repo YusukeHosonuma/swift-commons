@@ -147,7 +147,7 @@ dispatchAsync(.Default) {
 
 ## Requirements
 
-Swift 2.1 / iOS 8.0+
+Swift 3.0 / iOS 8.2+
 
 ## License
 

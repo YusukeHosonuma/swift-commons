@@ -21,7 +21,7 @@ class ResourcesInitializableTests: XCTestCase {
     
     func test_instantiateStoryboard() {
 
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
 
         var viewController: UIViewController
         
@@ -51,7 +51,7 @@ class ResourcesInitializableTests: XCTestCase {
         XCTAssertNotNil(view)
         
         // use custom bundle
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         view = SampleView.instantiateXib(bundle: bundle)
         XCTAssertNotNil(view)
     }
