@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
-    static func create<T>(_ pairs: [(key: String, value: T?)]) -> [String:T] {
+    public static func create<T>(_ pairs: [(key: String, value: T?)]) -> [String:T] {
         
         var dict: [String:T] = [:]
         

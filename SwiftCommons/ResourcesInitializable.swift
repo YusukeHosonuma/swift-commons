@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-protocol StoryboardInitializable {
+public protocol StoryboardInitializable {
 }
 
-protocol XibInitializable {
+public protocol XibInitializable {
 }
 
-extension StoryboardInitializable where Self: UIViewController {
+public extension StoryboardInitializable where Self: UIViewController {
     
-    static func instantiateStoryboard() -> Self {
+    public static func instantiateStoryboard() -> Self {
         let bundle = Bundle(for: self)
         return instantiateStoryboard(bundle: bundle)
     }
     
-    static func instantiateStoryboard(bundle: Bundle?) -> Self {
+    public static func instantiateStoryboard(bundle: Bundle?) -> Self {
         let type = Mirror(reflecting: self).subjectType
         let name = String(describing: type).components(separatedBy: ".")[0]
         let storyboard = UIStoryboard(name: name, bundle: bundle)
@@ -30,12 +30,12 @@ extension StoryboardInitializable where Self: UIViewController {
         return viewController
     }
     
-    static func instantiateStoryboard(identifier: String) -> Self {
+    public static func instantiateStoryboard(identifier: String) -> Self {
         let bundle = Bundle(for: self)
         return instantiateStoryboard(bundle: bundle, identifier: identifier)
     }
     
-    static func instantiateStoryboard(bundle: Bundle?, identifier: String) -> Self {
+    public static func instantiateStoryboard(bundle: Bundle?, identifier: String) -> Self {
         let type = Mirror(reflecting: self).subjectType
         let name = String(describing: type).components(separatedBy: ".")[0]
         let storyboard = UIStoryboard(name: name, bundle: bundle)
@@ -44,14 +44,14 @@ extension StoryboardInitializable where Self: UIViewController {
     }
 }
 
-extension XibInitializable where Self: UIView {
+public extension XibInitializable where Self: UIView {
     
-    static func instantiateXib() -> Self {
+    public static func instantiateXib() -> Self {
         let bundle = Bundle(for: self)
         return instantiateXib(bundle: bundle)
     }
     
-    static func instantiateXib(bundle: Bundle?) -> Self {
+    public static func instantiateXib(bundle: Bundle?) -> Self {
         let type = Mirror(reflecting: self).subjectType
         let name = String(describing: type).components(separatedBy: ".")[0]
         let nib = UINib(nibName: name, bundle: bundle)

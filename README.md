@@ -2,7 +2,12 @@
 Simple helper swift extensions for easily development.
 
 ## Installation
-Copy all the files from the SwiftCommons/Classes folder to your project.
+
+### Carthage
+
+```
+git "https://github.com/YusukeHosonuma/swift-commons"
+```
 
 ## APIs
 

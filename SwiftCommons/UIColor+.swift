@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
-    class func fromHex(_ hex: String) -> UIColor? {
+    public class func fromHex(_ hex: String) -> UIColor? {
         
         if hex.characters.count != 6 {
             return nil
