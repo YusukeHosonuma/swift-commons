@@ -10,43 +10,38 @@ import Foundation
 
 enum GCDQueue {
     
-    case Main
-    case High
-    case Default
-    case Low
-    case Background
+    case main
+    case high
+    case `default`
+    case low
+    case background
     
-    func dispatchQueue() -> dispatch_queue_t {
+    func dispatchQueue() -> DispatchQueue {
         switch self {
-        case .Main:
-            return dispatch_get_main_queue()
-        case.High:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-        case .Default:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        case .Low:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-        case .Background:
-            return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
+        case .main:
+            return DispatchQueue.main
+        case.high:
+            return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
+        case .default:
+            return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
+        case .low:
+            return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low)
+        case .background:
+            return DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background)
         }
     }
 }
 
-func dispatchAfter(delay delay: Double, closure: () -> ()) {
-    dispatch_after(
-        dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))),
-        dispatch_get_main_queue(),
-        closure)
+func dispatchAfter(delay: Double, closure: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+        execute: closure)
 }
 
-func dispatchAsync(queue: GCDQueue, closure: () -> ()) {
-    dispatch_async(
-        queue.dispatchQueue(),
-        closure)
+func dispatchAsync(_ queue: GCDQueue, closure: @escaping () -> ()) {
+    queue.dispatchQueue().async(execute: closure)
 }
 
-func dispatchSync(queue: GCDQueue, closure: () -> ()) {
-    dispatch_sync(
-        queue.dispatchQueue(),
-        closure)
+func dispatchSync(_ queue: GCDQueue, closure: () -> ()) {
+    queue.dispatchQueue().sync(execute: closure)
 }

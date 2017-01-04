@@ -73,7 +73,7 @@ class Array_Tests: XCTestCase {
         let array = [s1, s2]
         
         // append ! for all elements
-        array.forEach{ $0.appendString("!") }
+        array.forEach{ $0.append("!") }
         
         XCTAssertEqual("1!", s1)
         XCTAssertEqual("2!", s2)

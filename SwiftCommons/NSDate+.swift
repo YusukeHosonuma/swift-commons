@@ -8,18 +8,14 @@
 
 import Foundation
 
-public func < (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
+public func < (lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedAscending
 }
 
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.isEqualToDate(rhs)
-}
-
-extension NSDate : Comparable {
+extension Date {
 
     /// RFC3339 format for NSDate.
-    private class var kRFC3339Format: String {
+    fileprivate static var kRFC3339Format: String {
         return "yyyy'-'MM'-'dd'T'HH:mm:ssZZZZZ"
     }
 
@@ -29,12 +25,12 @@ extension NSDate : Comparable {
     - parameter string : The string to parse.
     - returns : A date.
     */
-    class func fromRFC3339String(string: String) -> NSDate? {
-        let formatter = NSDateFormatter()
+    static func fromRFC3339String(_ string: String) -> Date? {
+        let formatter = DateFormatter()
         formatter.dateFormat = kRFC3339Format
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        formatter.timeZone = NSTimeZone.defaultTimeZone()
-        return formatter.dateFromString(string)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone.current
+        return formatter.date(from: string)
     }
     
     /**
@@ -43,19 +39,19 @@ extension NSDate : Comparable {
     - parameter date : The date to string.
     - returns : RFC3339 string. (Timezone string is depends to defaultTimeZone)
     */
-    class func toRFC3339String(date: NSDate) -> String? {
-        let formatter = NSDateFormatter()
+    static func toRFC3339String(_ date: Date) -> String? {
+        let formatter = DateFormatter()
         formatter.dateFormat = kRFC3339Format
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        formatter.timeZone = NSTimeZone.defaultTimeZone()
-        return formatter.stringFromDate(date)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone.current
+        return formatter.string(from: date)
     }
     
-    func unixtime() -> NSTimeInterval {
+    func unixtime() -> TimeInterval {
         return self.timeIntervalSince1970
     }
     
-    class func fromUnixtime(unixtime: NSTimeInterval) -> NSDate {
-        return NSDate(timeIntervalSince1970: unixtime)
+    static func fromUnixtime(_ unixtime: TimeInterval) -> Date {
+        return Date(timeIntervalSince1970: unixtime)
     }
 }

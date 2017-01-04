@@ -21,7 +21,7 @@ class DebugTests: XCTestCase {
     
     func test_time() {
         let time = Debug.time {
-            NSThread.sleepForTimeInterval(0.1)
+            Thread.sleep(forTimeInterval: 0.1)
         }
         XCTAssertGreaterThan(time, 0.1)
         XCTAssertLessThan(time, 0.5)
@@ -29,13 +29,13 @@ class DebugTests: XCTestCase {
     
     func test_timePrint() {
         Debug.timePrint {
-            NSThread.sleepForTimeInterval(0.1)
+            Thread.sleep(forTimeInterval: 0.1)
         }
         Debug.timePrint("Thread sleep 0.1s") {
-            NSThread.sleepForTimeInterval(0.1)
+            Thread.sleep(forTimeInterval: 0.1)
         }
         Debug.t("Short") {
-            let _ = [1...100000].map{ String($0) }
+            let _ = [1...100000].map{ String(describing: $0) }
         }
     }
     

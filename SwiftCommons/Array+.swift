@@ -22,11 +22,11 @@ extension Array {
         return (count <= 1) ? [] : Array(self[1..<count])
     }
     
-    func take(n: Int) -> Array {
-        return Array(self[0..<min(n, count)])
+    func take(_ n: Int) -> Array {
+        return Array(self[0..<Swift.min(n, count)])
     }
     
-    func drop(n: Int) -> Array {
+    func drop(_ n: Int) -> Array {
         if n == 0 {
             return self
         } else {
@@ -34,33 +34,33 @@ extension Array {
         }
     }
 
-    func forEach(@noescape f: Element -> ()) {
+    func forEach(_ f: (Element) -> ()) {
         for n: Element in self {
             f(n)
         }
     }
 
     /// Alias for reduce, like Haskell.
-    func foldl<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
-        return reduce(acc, combine: f)
+    func foldl<T>(_ acc: T, f: (_ a: T, _ b: Element) -> T) -> T {
+        return reduce(acc, f)
     }
     
     /// foldr from Haskell.
-    func foldr<T>(acc: T, @noescape f: (a: T, b: Element) -> T) -> T {
-        return reverse().reduce(acc, combine: f)
+    func foldr<T>(_ acc: T, f: (_ a: T, _ b: Element) -> T) -> T {
+        return reversed().reduce(acc, f)
     }
     
     /// foldl1 from Haskell.
-    func foldl1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
+    func foldl1(_ f: (_ a: Element, _ b: Element) -> Element) -> Element {
         var x = first!
         for e in tail() {
-            x = f(a: x, b: e)
+            x = f(x, e)
         }
         return x
     }
     
     /// foldr1 from Haskell.
-    func foldr1(@noescape f: (a: Element, b: Element) -> Element) -> Element {
-        return reverse().foldl1(f)
+    func foldr1(_ f: (_ a: Element, _ b: Element) -> Element) -> Element {
+        return reversed().foldl1(f)
     }
 }

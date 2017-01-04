@@ -8,6 +8,26 @@
 
 import XCTest
 @testable import SwiftCommons
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class NSDate_Tests: XCTestCase {
     
@@ -21,12 +41,12 @@ class NSDate_Tests: XCTestCase {
     
     func test_operator() {
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
         
-        let d1 = formatter.dateFromString("2016/03/01 00:00:00")
-        let d2 = formatter.dateFromString("2016/03/01 00:00:00")
-        let d3 = formatter.dateFromString("2016/03/02 00:00:00")
+        let d1 = formatter.date(from: "2016/03/01 00:00:00")
+        let d2 = formatter.date(from: "2016/03/01 00:00:00")
+        let d3 = formatter.date(from: "2016/03/02 00:00:00")
         
         XCTAssertTrue(d1 == d2)
         XCTAssertTrue(d1 != d3)
@@ -40,8 +60,8 @@ class NSDate_Tests: XCTestCase {
     
     func test_fromRFC3339String() {
 
-        let dc = NSDateComponents()
-        dc.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        var dc = DateComponents()
+        dc.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         dc.year   = 2015
         dc.month  = 09
         dc.day    = 10
@@ -51,52 +71,51 @@ class NSDate_Tests: XCTestCase {
         
         
         // GMT
-        
-        dc.timeZone = NSTimeZone(name: "GMT")
+        dc.timeZone = TimeZone(identifier: "GMT")
         let dateGmt = dc.date!
         
         // string -> date
         XCTAssertEqual(
             dateGmt,
-            NSDate.fromRFC3339String("2015-09-10T23:37:05Z")!)
+            Date.fromRFC3339String("2015-09-10T23:37:05Z")!)
         
         // date -> string
         XCTAssertEqual(
             "2015-09-11T08:37:05+09:00",
-            NSDate.toRFC3339String(dateGmt)!)
+            Date.toRFC3339String(dateGmt)!)
         
         
         // GMT+09:00(Asia)
         
-        dc.timeZone = NSTimeZone(name: "Asia/Tokyo")
+        dc.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let dateAsia = dc.date!
         
         // string -> date
         XCTAssertEqual(
             dateAsia,
-            NSDate.fromRFC3339String("2015-09-10T23:37:05+09:00")!)
+            Date.fromRFC3339String("2015-09-10T23:37:05+09:00")!)
         
         // date -> string
         XCTAssertEqual(
             "2015-09-10T23:37:05+09:00",
-            NSDate.toRFC3339String(dateAsia)!)
+            Date.toRFC3339String(dateAsia)!)
     }
     
     func test_unixtime() {
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
         
-        let date = formatter.dateFromString("2015/11/22 01:33:00")
+        let date = formatter.date(from: "2015/11/22 01:33:00")
         XCTAssertEqual(date!.unixtime(), 1448123580.0)
     }
     
     func test_fromUnixtime() {
         
-        let date = NSDate.fromUnixtime(1448123580.0)
+        let date = Date.fromUnixtime(1448123580.0)
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
-        XCTAssertEqual(formatter.stringFromDate(date), "2015/11/22 01:33:00")
+        XCTAssertEqual(formatter.string(from: date), "2015/11/22 01:33:00")
     }
 }

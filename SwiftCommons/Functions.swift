@@ -8,20 +8,20 @@
 
 import Foundation
 
-func isEven(x: Int) -> Bool {
+func isEven(_ x: Int) -> Bool {
     return x % 2 == 0
 }
 
-func isOdd(x: Int) -> Bool {
+func isOdd(_ x: Int) -> Bool {
     return !isEven(x)
 }
 
-func ngt(x: Int) -> Int {
+func ngt(_ x: Int) -> Int {
     return -x
 }
 
 func screenSize() -> CGSize {
-    return UIScreen.mainScreen().bounds.size
+    return UIScreen.main.bounds.size
 }
 
 func screenWidth() -> CGFloat {

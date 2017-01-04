@@ -10,7 +10,7 @@ import Foundation
 
 extension Dictionary {
     
-    static func create<T>(pairs: [(key: String, value: T?)]) -> [String:T] {
+    static func create<T>(_ pairs: [(key: String, value: T?)]) -> [String:T] {
         
         var dict: [String:T] = [:]
         

@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension SequenceType {
+extension Sequence {
     
     /**
      ex)
      - [].replaceLast(4) -> [4]
      - [1, 2, 3].replaceLast(4) -> [1, 2, 4]
      */
-    func replaceLast(replacement: Generator.Element) -> [Generator.Element] {
+    func replaceLast(_ replacement: Iterator.Element) -> [Iterator.Element] {
         var array = Array(self)
         if !array.isEmpty {
             array.removeLast()
@@ -25,7 +25,7 @@ extension SequenceType {
     }
 }
 
-extension SequenceType where Generator.Element : Equatable {
+extension Sequence where Iterator.Element : Equatable {
 
     /**
      Same by `groupBy(==)`
@@ -34,7 +34,7 @@ extension SequenceType where Generator.Element : Equatable {
      - [].group() -> []
      - [1, 1 ,1, 2, 3, 3].group() -> [[1, 1, 1], [2], [3, 3]]
      */
-    func group() -> [[Generator.Element]] {
+    func group() -> [[Iterator.Element]] {
         return self.groupBy(==)
     }
 
@@ -44,10 +44,10 @@ extension SequenceType where Generator.Element : Equatable {
      - [1, 1 ,1, 2, 3, 3].group(==) -> [[1, 1, 1], [2], [3, 3]]
      - [1, 1 ,1, 2, 3, 3].group(!=) -> [[1], [1], [1, 2, 3], [3]]
      */
-    func groupBy(condition: (Generator.Element, Generator.Element) -> Bool) -> [[Generator.Element]] {
-        var grouped: [[Generator.Element]] = []
+    func groupBy(_ condition: (Iterator.Element, Iterator.Element) -> Bool) -> [[Iterator.Element]] {
+        var grouped: [[Iterator.Element]] = []
         for x in self {
-            if var lastGroup = grouped.last, let element = lastGroup.last where condition(element, x) {
+            if var lastGroup = grouped.last, let element = lastGroup.last , condition(element, x) {
                 lastGroup.append(x)
                 grouped = grouped.replaceLast(lastGroup)
             } else {
@@ -58,13 +58,13 @@ extension SequenceType where Generator.Element : Equatable {
     }
 }
 
-extension SequenceType where Generator.Element : SequenceType {
+extension Sequence where Iterator.Element : Sequence {
     
     /**
      ex) [[1, 1, 1], [2], [3, 3]] -> [1, 1, 1, 2, 3, 3]
      */
-    func concat() -> [Generator.Element.Generator.Element] {
-        var concated: [Generator.Element.Generator.Element] = []
+    func concat() -> [Iterator.Element.Iterator.Element] {
+        var concated: [Iterator.Element.Iterator.Element] = []
         for list in self {
             for x in list {
                 concated.append(x)

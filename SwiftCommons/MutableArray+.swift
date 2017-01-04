@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     
-    mutating func insertHead(e: Element) {
-        self.insert(e, atIndex: 0)
+    mutating func insertHead(_ e: Element) {
+        self.insert(e, at: 0)
     }
 }

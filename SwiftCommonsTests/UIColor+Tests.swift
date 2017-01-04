@@ -21,11 +21,17 @@ class UIColor_Tests: XCTestCase {
 
     func test_fromHex() {
         
+        let c = UIColor.fromHex("FF0000")
+        print(c)
+        
+        let c2 = UIColor.red
+        print(c2)
+        
         // upper case
-        XCTAssertEqual(UIColor.fromHex("FF0000")!, UIColor.redColor())
+        XCTAssertEqual(UIColor.fromHex("FF0000")!, UIColor.red)
         
         // lower case
-        XCTAssertEqual(UIColor.fromHex("0000ff")!, UIColor.blueColor())
+        XCTAssertEqual(UIColor.fromHex("0000ff")!, UIColor.blue)
         
         // length != 6
         XCTAssertNil(UIColor.fromHex("12345"))
