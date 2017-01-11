@@ -23,6 +23,13 @@ public extension Sequence {
         array.append(replacement)
         return array
     }
+    
+    public func all(_ predicate: (Self.Iterator.Element) -> Bool) -> Bool {
+        for x in self where !predicate(x) {
+            return false
+        }
+        return true
+    }
 }
 
 public extension Sequence where Iterator.Element : Equatable {

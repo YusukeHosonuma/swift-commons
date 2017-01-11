@@ -218,6 +218,12 @@ class String_Tests: XCTestCase {
         XCTAssertEqual(string, decodedString)
     }
     
+    func test_isDigit() {
+        XCTAssertTrue ("0123456789".isDigitOnly())
+        XCTAssertFalse("0123456789x".isDigitOnly())
+        XCTAssertFalse("abcdefghijk".isDigitOnly())
+    }
+    
     func test_toDate() {
         
         func date(y:Int, M:Int, d:Int, h:Int = 0, m:Int = 0, s:Int = 0, tz:String? = "GMT") -> Date? {

@@ -14,7 +14,7 @@ func XCTAssertEqualArray<T: Equatable>(_ e1: [[T]], _ e2: [[T]]) {
     XCTAssertTrue(isEqual, "\(e1) is not equal to \(e2)")
 }
 
-class SequenceTypeTests: XCTestCase {
+class SequenceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,6 +22,12 @@ class SequenceTypeTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+    }
+    
+    func test_all() {
+        XCTAssertTrue ([1, 1, 1].all { $0 == 1 })
+        XCTAssertFalse([1, 1, 0].all { $0 == 1 })
+        XCTAssertFalse([0, 0, 0].all { $0 == 1 })
     }
     
     func test_last() {
