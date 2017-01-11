@@ -24,6 +24,12 @@ class SequenceTypeTests: XCTestCase {
         super.tearDown()
     }
     
+    func test_all() {
+        XCTAssertTrue ([1, 1, 1].all { $0 == 1 })
+        XCTAssertFalse([1, 1, 0].all { $0 == 1 })
+        XCTAssertFalse([0, 0, 0].all { $0 == 1 })
+    }
+    
     func test_last() {
         XCTAssertEqual([].replaceLast(4), [4])
         XCTAssertEqual([1, 2, 3].replaceLast(4), [1, 2, 4])

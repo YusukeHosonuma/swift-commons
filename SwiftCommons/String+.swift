@@ -211,6 +211,10 @@ public extension String {
         return self.removingPercentEncoding!
     }
     
+    func isDigitOnly() -> Bool {
+        return self.characters.all { $0.isDigit }
+    }
+    
     /**
     Converting Calendar Date String to NSDate
     
