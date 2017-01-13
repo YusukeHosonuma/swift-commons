@@ -89,13 +89,8 @@ public extension String {
     }
     
     public func match(_ pattern: String) -> Bool {
-        do {
-            let regexp = try NSRegularExpression(pattern: pattern, options: [])
-            let matches = regexp.matches(in: self, options: [], range: NSMakeRange(0, length))
-            return matches.count > 0
-        } catch {
-            return false
-        }
+        guard let matches = Regex(pattern)?.matches(self) else { return false }
+        return matches.count > 0
     }
     
     public func head(_ length: Int) -> String {

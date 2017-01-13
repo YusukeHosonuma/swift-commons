@@ -20,6 +20,8 @@
 		705FDC231C0098D10065204C /* Sequence+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705FDC221C0098D10065204C /* Sequence+Tests.swift */; };
 		7069A9D21E267B4E0008CE95 /* Character+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069A9D11E267B4E0008CE95 /* Character+.swift */; };
 		7069A9D41E267CA50008CE95 /* Character+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069A9D31E267CA50008CE95 /* Character+Tests.swift */; };
+		7069A9D61E2924D00008CE95 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069A9D51E2924D00008CE95 /* Regex.swift */; };
+		7069A9D81E2924EB0008CE95 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7069A9D71E2924EB0008CE95 /* RegexTests.swift */; };
 		707278891BA1CC47002770EF /* NSDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707278881BA1CC47002770EF /* NSDate+.swift */; };
 		7072788D1BA1CCAB002770EF /* NSDate+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */; };
 		7077E5351B44111F00E3BBED /* SwiftCommons.h in Headers */ = {isa = PBXBuildFile; fileRef = 7077E5341B44111F00E3BBED /* SwiftCommons.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +71,8 @@
 		705FDC221C0098D10065204C /* Sequence+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Tests.swift"; sourceTree = "<group>"; };
 		7069A9D11E267B4E0008CE95 /* Character+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+.swift"; sourceTree = "<group>"; };
 		7069A9D31E267CA50008CE95 /* Character+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Tests.swift"; sourceTree = "<group>"; };
+		7069A9D51E2924D00008CE95 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		7069A9D71E2924EB0008CE95 /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		707278881BA1CC47002770EF /* NSDate+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+.swift"; sourceTree = "<group>"; };
 		7072788C1BA1CCAB002770EF /* NSDate+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Tests.swift"; sourceTree = "<group>"; };
 		7077E52F1B44111F00E3BBED /* SwiftCommons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCommons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,7 @@
 		7025D0331B8CA05900D5C982 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				7069A9D51E2924D00008CE95 /* Regex.swift */,
 				7025D02A1B8B8A1E00D5C982 /* Functions.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				70F0F4DD1C0962470041F07A /* MutableArray+.swift */,
@@ -178,6 +183,7 @@
 		7025D0361B8CA08000D5C982 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				7069A9D71E2924EB0008CE95 /* RegexTests.swift */,
 				7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				70F0F4DF1C09627E0041F07A /* MutableArray+Tests.swift */,
@@ -402,6 +408,7 @@
 				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
 				7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */,
 				70F0F4DE1C0962470041F07A /* MutableArray+.swift in Sources */,
+				7069A9D61E2924D00008CE95 /* Regex.swift in Sources */,
 				70992BD11CBBF83A008BC6FF /* Dictionary+.swift in Sources */,
 				7025D0381B8CA09E00D5C982 /* UIView+.swift in Sources */,
 				7047AA7A1C9FC48E00A73270 /* Bool+.swift in Sources */,
@@ -424,6 +431,7 @@
 				7069A9D41E267CA50008CE95 /* Character+Tests.swift in Sources */,
 				7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */,
 				70F5DE831CBC06F5003E599D /* Dictionary+Tests.swift in Sources */,
+				7069A9D81E2924EB0008CE95 /* RegexTests.swift in Sources */,
 				70F0F4E01C09627E0041F07A /* MutableArray+Tests.swift in Sources */,
 				702B56161B8F5D9D0019617B /* UIViewTestHelper.swift in Sources */,
 				702B56141B8F5C950019617B /* UIViewController+Tests.swift in Sources */,
