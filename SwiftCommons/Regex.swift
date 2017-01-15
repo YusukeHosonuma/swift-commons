@@ -53,11 +53,11 @@ public func regex(_ pattern: String) -> RegexBuilder {
 
 public struct RegexPatternBuilder {
     
-    func comment(_ _: String) -> RegexPatternBuilder {
+    public func comment(_ _: String) -> RegexPatternBuilder {
         return self
     }
     
-    func pattern(_ pattern: String) -> RegexBuilder {
+    public func pattern(_ pattern: String) -> RegexBuilder {
         return RegexBuilder(pattern)
     }
 }
@@ -67,51 +67,51 @@ public struct RegexBuilder {
     fileprivate let pattern: String
     fileprivate var options: NSRegularExpression.Options = []
     
-    init(_ pattern: String) {
+    fileprivate init(_ pattern: String) {
         self.pattern = pattern
     }
     
-    func build() -> Regex? {
+    public func build() -> Regex? {
         return Regex(self.pattern, options: self.options)
     }
     
-    func caseInsensitive() -> RegexBuilder {
+    public func caseInsensitive() -> RegexBuilder {
         var builder = self
         builder.options.insert(.caseInsensitive)
         return builder
     }
     
-    func allowCommentsAndWhitespace() -> RegexBuilder {
+    public func allowCommentsAndWhitespace() -> RegexBuilder {
         var builder = self
         builder.options.insert(.allowCommentsAndWhitespace)
         return builder
     }
     
-    func ignoreMetacharacters() -> RegexBuilder {
+    public func ignoreMetacharacters() -> RegexBuilder {
         var builder = self
         builder.options.insert(.ignoreMetacharacters)
         return builder
     }
     
-    func dotMatchesLineSeparators() -> RegexBuilder {
+    public func dotMatchesLineSeparators() -> RegexBuilder {
         var builder = self
         builder.options.insert(.dotMatchesLineSeparators)
         return builder
     }
     
-    func anchorsMatchLines() -> RegexBuilder {
+    public func anchorsMatchLines() -> RegexBuilder {
         var builder = self
         builder.options.insert(.anchorsMatchLines)
         return builder
     }
     
-    func useUnixLineSeparators() -> RegexBuilder {
+    public func useUnixLineSeparators() -> RegexBuilder {
         var builder = self
         builder.options.insert(.useUnixLineSeparators)
         return builder
     }
     
-    func useUnicodeWordBoundaries() -> RegexBuilder {
+    public func useUnicodeWordBoundaries() -> RegexBuilder {
         var builder = self
         builder.options.insert(.useUnicodeWordBoundaries)
         return builder
