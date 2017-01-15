@@ -20,16 +20,45 @@ class RegexTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_builderExpression() {
+    func test_basic() {
         
         // Use build(), this is need manually unwrap.
-        let regexZipCode = regex()
-            .comment("zipcode")
-            .pattern("#japan [0-9]{3}-[0-9]{4}")
-            .allowCommentsAndWhitespace()
-            .build()
-        XCTAssertEqual(regexZipCode?.isMatch("123-4567"), true)
+        guard let regexZipCode = regex()
+            .comment("Japanese postal code")
+            .pattern("zip:([0-9]{3})[-]([0-9]{4})")
+            .caseInsensitive()
+            .build() else {
+                XCTFail("Invalid pattern")
+                return
+        }
         
+        let target = "zip:123-4567, ZIP:888-9999"
+        
+        // isMatch() -> Bool
+        XCTAssertEqual(regexZipCode.isMatch(target), true)
+        
+        // match() -> Match?
+        XCTAssertEqual(regexZipCode.match(target)?._0, "zip:123-4567")
+        XCTAssertEqual(regexZipCode.match(target)?._1, "123")
+        XCTAssertEqual(regexZipCode.match(target)?._2, "4567")
+        
+        // matches() -> [Match]
+        XCTAssertEqual(regexZipCode.matches(target).count, 2)
+        XCTAssertEqual(regexZipCode.matches(target)[0].groups.count, 3)
+        XCTAssertEqual(regexZipCode.matches(target)[0]._0, "zip:123-4567")
+        XCTAssertEqual(regexZipCode.matches(target)[0]._1, "123")
+        XCTAssertEqual(regexZipCode.matches(target)[0]._2, "4567")
+        XCTAssertEqual(regexZipCode.matches(target)[1].groups.count, 3)
+        XCTAssertEqual(regexZipCode.matches(target)[1]._0, "ZIP:888-9999")
+        XCTAssertEqual(regexZipCode.matches(target)[1]._1, "888")
+        XCTAssertEqual(regexZipCode.matches(target)[1]._2, "9999")
+        
+        // replace() -> String
+        XCTAssertEqual(regexZipCode.replace(in: target, to: "****"), "****, ****")
+    }
+    
+    func test_notUseBuild() {
+
         // Not use build(), fail if pattern was invalid.
         XCTAssertTrue(regex()
             .pattern("#example Hello,\\s.+$")
