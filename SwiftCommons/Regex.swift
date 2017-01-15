@@ -52,6 +52,11 @@ public func regex(_ pattern: String) -> RegexBuilder {
 
 
 public struct RegexPatternBuilder {
+    
+    func comment(_ _: String) -> RegexPatternBuilder {
+        return self
+    }
+    
     func pattern(_ pattern: String) -> RegexBuilder {
         return RegexBuilder(pattern)
     }
@@ -64,6 +69,10 @@ public struct RegexBuilder {
     
     init(_ pattern: String) {
         self.pattern = pattern
+    }
+    
+    func build() -> Regex? {
+        return Regex(self.pattern, options: self.options)
     }
     
     func caseInsensitive() -> RegexBuilder {

@@ -21,6 +21,16 @@ class RegexTests: XCTestCase {
     }
     
     func test_builderExpression() {
+        
+        // Use build(), this is need manually unwrap.
+        let regexZipCode = regex()
+            .comment("zipcode")
+            .pattern("#japan [0-9]{3}-[0-9]{4}")
+            .allowCommentsAndWhitespace()
+            .build()
+        XCTAssertEqual(regexZipCode?.isMatch("123-4567"), true)
+        
+        // Not use build(), fail if pattern was invalid.
         XCTAssertTrue(regex()
             .pattern("#example Hello,\\s.+$")
             .caseInsensitive()
