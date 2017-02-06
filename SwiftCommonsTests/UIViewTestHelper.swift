@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-func createView(tag tag: Int) -> UIView {
+func createView(tag: Int) -> UIView {
     let view = UIView()
     view.tag = tag
     return view

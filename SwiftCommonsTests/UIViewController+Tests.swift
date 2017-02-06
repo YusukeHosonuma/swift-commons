@@ -43,10 +43,10 @@ class UIViewController_Tests: XCTestCase {
 
         viewController.exclusiveTouches()
         
-        XCTAssertTrue(view1.exclusiveTouch)
-        XCTAssertTrue(view11.exclusiveTouch)
-        XCTAssertTrue(view12.exclusiveTouch)
-        XCTAssertTrue(view121.exclusiveTouch)
-        XCTAssertTrue(view122.exclusiveTouch)
+        XCTAssertTrue(view1.isExclusiveTouch)
+        XCTAssertTrue(view11.isExclusiveTouch)
+        XCTAssertTrue(view12.isExclusiveTouch)
+        XCTAssertTrue(view121.isExclusiveTouch)
+        XCTAssertTrue(view122.isExclusiveTouch)
     }
 }

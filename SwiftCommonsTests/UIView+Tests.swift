@@ -92,21 +92,21 @@ class UIView_Tests: XCTestCase {
     func test_hide() {
         
         let view1 = UIView()
-        view1.hidden = false
+        view1.isHidden = false
         
         let view2 = view1.hide()
         XCTAssertTrue(view1 === view2)
-        XCTAssertTrue(view1.hidden)
+        XCTAssertTrue(view1.isHidden)
     }
     
     func test_show() {
         
         let view1 = UIView()
-        view1.hidden = true
+        view1.isHidden = true
         
         let view2 = view1.show()
         XCTAssertTrue(view1 === view2)
-        XCTAssertFalse(view1.hidden)
+        XCTAssertFalse(view1.isHidden)
     }
     
     func test_findView() {

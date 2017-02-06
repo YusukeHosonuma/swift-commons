@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
-    class func fromHex(hex: String) -> UIColor? {
+    public class func fromHex(_ hex: String) -> UIColor? {
         
         if hex.characters.count != 6 {
             return nil
         }
         
-        let scanner = NSScanner(string: hex)
+        let scanner = Scanner(string: hex)
         var color: UInt32 = 0
-        if (scanner.scanHexInt(&color)) {
+        if (scanner.scanHexInt32(&color)) {
             let r = (color & 0xFF0000) >> 16
             let g = (color & 0x00FF00) >> 8
             let b = (color & 0x0000FF)
-            return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+            return UIColor(red: CGFloat(r / 255), green: CGFloat(g / 255), blue: CGFloat(b / 255), alpha: 1)
         }
         return nil
     }
