@@ -211,30 +211,16 @@ public extension String {
     }
     
     /**
-    Converting Calendar Date String to NSDate
-    
-    - parameter format   : Calendar date format strings.
-    - parameter calendar : calendar identifier.
-    - parameter language : location identifier.
-    - parameter timeZone : time zone.
-    */
-    public func toDate(format: String,
-                calendar: Calendar.Identifier = Calendar.Identifier.gregorian,
-                language: String = "en",
-                timeZone: String = "GMT") -> Date? {
-        
+     Converts String to Date
+     
+     - parameter fromFormat: Gregorian calendar format string to parse the receiver and convert to type of Date.
+     */
+    public func toDate(fromFormat gregorianFormat: String) -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = format
-            
-        //set calendar
-        formatter.calendar = Calendar(identifier: calendar)
-        
-        //set locale
-        formatter.locale = Locale(identifier: language)
-        
-        //set timeZone
-        formatter.timeZone = TimeZone(identifier: timeZone)
-        
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = NSLocale.system
+        formatter.timeZone = NSTimeZone.system
+        formatter.dateFormat = gregorianFormat
         return formatter.date(from: self)
     }
 
