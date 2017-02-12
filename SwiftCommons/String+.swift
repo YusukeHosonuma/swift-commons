@@ -93,6 +93,7 @@ public extension String {
         return matches.count > 0
     }
     
+    
     public func head(_ length: Int) -> String {
         return (length > self.length) ? self : self[0..<length]
     }
@@ -223,5 +224,73 @@ public extension String {
         formatter.dateFormat = gregorianFormat
         return formatter.date(from: self)
     }
+}
 
+//MARK: Searching
+/**
+ # String Linear Search Extenstion
+ */
+extension String {
+    
+        
+    /**
+     Searchs for a given string by using UnsafePointer.
+     This is a bit slower than String.range(of:).
+     
+     - paramater searchString: The string to search for.
+     - returns: The first location where the given string matched.
+     */
+    public func search(for searchString: String) -> String.Index? {
+        var index: String.Index? = nil
+        self.search(for: searchString) { location in
+            index = location
+            return false
+        }
+        return index
+    }
+    
+    /**
+     Searchs a string for a specified value and calls a given handler when matched.
+     
+     - parameters:
+     - value: The string to search for.
+     - matched: The closure that takes an first index where the specified value matched and returns Boolean value that indicates whether it continues searching.
+     */
+    public func search(for search: String, matched: (String.Index) -> Bool) {
+        let mLength = self.utf8.count
+        let sLength = search.utf8.count
+        guard mLength >= sLength else {
+            return
+        }
+        
+        self.withCString { (mChars: UnsafePointer<Int8>) in
+            search.withCString { (sChars: UnsafePointer<Int8>) in
+                var i: Int = 0
+                next: while i < mLength - (sLength - 1) {
+                    guard let width = UTF8.width(leadingByte: UInt8(bitPattern: mChars[i])) else {
+                        break next
+                    }
+                    defer { i += width }
+                    
+                    for j in 0..<sLength {
+                        
+                        let m = mChars[i+j]
+                        let s = sChars[j]
+                        guard m == s else {
+                            continue next
+                        }
+                        
+                        if j == sLength - 1 {
+                            guard let loc = self.utf8.index(self.utf8.startIndex, offsetBy: i).samePosition(in: self),
+                                matched(loc) else {
+                                break next
+                            }
+                            
+                            continue next
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

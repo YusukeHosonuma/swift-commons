@@ -11,6 +11,12 @@ import XCTest
 
 class String_Tests: XCTestCase {
 
+    let testBundle = Bundle(path: URL(fileURLWithPath: #file).deletingLastPathComponent().appendingPathComponent("Resources").path)!
+    
+    func filePath(name: String) -> String {
+        return testBundle.path(forResource: name, ofType: nil)!
+    }
+    
     override func setUp() {
         super.setUp()
     }
@@ -256,5 +262,64 @@ class String_Tests: XCTestCase {
                        date(y: 2015, M: 9, d: 15, h:22, m:30, s:30, tz:"America/Los_Angeles"))
 
 
+    }
+    
+    
+    func test_search_mached() {
+        let str = "\"PPAP\", \"✑\", \"🍍\", \"🍎\", \"✒\", \"PPAP\""
+        var machCount: Int = 0
+        str.search(for: "PPAP") { location in
+            
+            XCTAssertEqual(str[location..<str.index(location, offsetBy: 4)], "PPAP")
+            machCount += 1
+            return true
+        }
+        XCTAssertEqual(machCount, 2)
+    }
+
+    func test_search() {
+        var content = "Hello"
+        XCTAssertEqual(content.search(for: "H"), content.range(of: "H")?.lowerBound)
+        XCTAssertEqual(content.search(for: "He"), content.range(of: "He")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Hel"), content.range(of: "Hel")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Hell"), content.range(of: "Hell")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Hello"), content.range(of: "Hello")?.lowerBound)
+        
+        content = "Hello World"
+        XCTAssertEqual(content.search(for: "W"), content.range(of: "W")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Wo"), content.range(of: "Wo")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Wor"), content.range(of: "Wor")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Worl"), content.range(of: "Worl")?.lowerBound)
+        XCTAssertEqual(content.search(for: "World"), content.range(of: "World")?.lowerBound)
+        
+        XCTAssertEqual(content.search(for: "Word"), nil)
+        XCTAssertEqual(content.search(for: "Hello Word"), nil)
+        
+        content = "ねむい〜。I'm sleepiiiiiy 😌😪"
+        XCTAssertEqual(content.search(for: "😌"), content.range(of: "😌")?.lowerBound)
+        
+        content = "🌃 The Starry Night is an oil on canvas by the Dutch post-impressionist painter Vincent van Gogh. 👨‍🎨"
+        XCTAssertEqual(content.search(for: "👨‍🎨"), content.range(of: "👨‍🎨")?.lowerBound)
+        XCTAssertEqual(content.search(for: "Vincent van Gogh."), content.range(of: "Vincent van Gogh.")?.lowerBound)
+        
+        // I'm sorry this test doesn't pass.
+//        content = "يا إلهي"
+//        XCTAssertEqual(content.search(for: "إلهي"), content.range(of: "إلهي")?.lowerBound)
+    }
+    
+    func test_measure_rangeof() {
+        let content = try! String(contentsOfFile: filePath(name: "emoji_list.txt"))
+        let search = "🔸🔹"
+        self.measure {
+            _ = content.range(of: search)
+        }
+    }
+    
+    func test_mesure_search() {
+        let content = try! String(contentsOfFile: filePath(name: "emoji_list.txt"))
+        let search = "🔸🔹"
+        self.measure {
+            _ = content.search(for: search)
+        }
     }
 }

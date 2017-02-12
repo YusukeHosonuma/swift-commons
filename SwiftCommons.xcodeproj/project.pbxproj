@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AA274B71E4ECF15002B5647 /* UTF8+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA274B61E4ECF15002B5647 /* UTF8+.swift */; };
+		4AA274BA1E4EE473002B5647 /* emoji_list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4AA274B91E4EE473002B5647 /* emoji_list.txt */; };
+		4AA274BE1E4FFFF1002B5647 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA274BD1E4FFFF1002B5647 /* Collection+.swift */; };
+		4AA274C41E5040DF002B5647 /* Collection+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA274C31E5040DF002B5647 /* Collection+Tests.swift */; };
 		7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D02A1B8B8A1E00D5C982 /* Functions.swift */; };
 		7025D02E1B8B8A8200D5C982 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */; };
 		7025D0321B8C9FEC00D5C982 /* UIView+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025D0311B8C9FEC00D5C982 /* UIView+Tests.swift */; };
@@ -58,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AA274B61E4ECF15002B5647 /* UTF8+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UTF8+.swift"; sourceTree = "<group>"; };
+		4AA274B91E4EE473002B5647 /* emoji_list.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emoji_list.txt; sourceTree = "<group>"; };
+		4AA274BD1E4FFFF1002B5647 /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		4AA274C31E5040DF002B5647 /* Collection+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Tests.swift"; sourceTree = "<group>"; };
 		7025D02A1B8B8A1E00D5C982 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		7025D02D1B8B8A8200D5C982 /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		7025D0311B8C9FEC00D5C982 /* UIView+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Tests.swift"; sourceTree = "<group>"; };
@@ -119,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AA274B81E4EE473002B5647 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4AA274B91E4EE473002B5647 /* emoji_list.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7025D02F1B8C9EA600D5C982 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +255,7 @@
 		7077E53F1B44111F00E3BBED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AA274B81E4EE473002B5647 /* Resources */,
 				7077E5401B44111F00E3BBED /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -247,6 +264,7 @@
 		70C0A2A31E2A5A9B0072D72D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4AA274C31E5040DF002B5647 /* Collection+Tests.swift */,
 				708E18E31B8B518000B11067 /* Array+Tests.swift */,
 				70F0F4DF1C09627E0041F07A /* MutableArray+Tests.swift */,
 				7069A9D31E267CA50008CE95 /* Character+Tests.swift */,
@@ -262,14 +280,16 @@
 		70C0A2A41E2A5AA30072D72D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7047AA791C9FC48E00A73270 /* Bool+.swift */,
+				705FDC201C0097A50065204C /* Sequence+.swift */,
+				4AA274BD1E4FFFF1002B5647 /* Collection+.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				70F0F4DD1C0962470041F07A /* MutableArray+.swift */,
+				70992BD01CBBF83A008BC6FF /* Dictionary+.swift */,
 				7069A9D11E267B4E0008CE95 /* Character+.swift */,
 				708E18EA1B8B6E5200B11067 /* String+.swift */,
+				4AA274B61E4ECF15002B5647 /* UTF8+.swift */,
 				707278881BA1CC47002770EF /* NSDate+.swift */,
-				705FDC201C0097A50065204C /* Sequence+.swift */,
-				7047AA791C9FC48E00A73270 /* Bool+.swift */,
-				70992BD01CBBF83A008BC6FF /* Dictionary+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +423,7 @@
 			files = (
 				70F7F5221BE51C1A00353E28 /* SampleView.xib in Resources */,
 				70F7F5201BE51C1A00353E28 /* SampleViewController.storyboard in Resources */,
+				4AA274BA1E4EE473002B5647 /* emoji_list.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,8 +442,10 @@
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 				702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */,
 				70F7F5191BE51BD100353E28 /* ResourcesInitializable.swift in Sources */,
+				4AA274B71E4ECF15002B5647 /* UTF8+.swift in Sources */,
 				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
 				7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */,
+				4AA274BE1E4FFFF1002B5647 /* Collection+.swift in Sources */,
 				70F0F4DE1C0962470041F07A /* MutableArray+.swift in Sources */,
 				7069A9D61E2924D00008CE95 /* Regex.swift in Sources */,
 				70992BD11CBBF83A008BC6FF /* Dictionary+.swift in Sources */,
@@ -438,6 +461,7 @@
 				7047AA7C1C9FC4A900A73270 /* Bool+Tests.swift in Sources */,
 				70F7F51F1BE51C1A00353E28 /* SampleViewController.swift in Sources */,
 				7025D0321B8C9FEC00D5C982 /* UIView+Tests.swift in Sources */,
+				4AA274C41E5040DF002B5647 /* Collection+Tests.swift in Sources */,
 				70F5A85E1C00DA9400D6736B /* DebugTests.swift in Sources */,
 				70943FEB1B8B7D020024D3DF /* UIColor+Tests.swift in Sources */,
 				705FDC231C0098D10065204C /* Sequence+Tests.swift in Sources */,
