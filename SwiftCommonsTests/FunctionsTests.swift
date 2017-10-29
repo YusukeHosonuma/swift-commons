@@ -43,4 +43,13 @@ class FunctionsTests: XCTestCase {
         XCTAssertEqual(-2, ngt(2))
         XCTAssertEqual(2, ngt(-2))
     }
+    
+    func test_counter() {
+        XCTAssertEqual(Array(counter(to: 1)), [0])
+        XCTAssertEqual(Array(counter(1, to: 3)), [1,2])
+        XCTAssertEqual(Array(counter(2, to: 5)), [2,3,4])
+        
+        XCTAssertEqual(Array(counter(0, to: -1)), [])
+        XCTAssertEqual(Array(counter(1, to: 1)), [])
+    }
 }

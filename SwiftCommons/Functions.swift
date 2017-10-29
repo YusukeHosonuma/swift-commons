@@ -20,6 +20,19 @@ public func ngt(_ x: Int) -> Int {
     return -x
 }
 
+/**
+ Returns the sequence for sequentially getting values using an Array's subscript.
+ 
+ This function is safe because it creates the sequence with `stride(_: to: by:)` function.
+ ```
+ let empty: [Int] = []
+ let counter = counter(0, empty.endIndex-1) // not crash
+ ```
+ */
+public func counter(_ from: Int = 0, to: Int) -> StrideTo<Int> {
+    return stride(from: from, to: to, by: 1)
+}
+
 public func screenSize() -> CGSize {
     return UIScreen.main.bounds.size
 }
