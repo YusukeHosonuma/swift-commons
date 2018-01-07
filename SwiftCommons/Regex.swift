@@ -197,7 +197,7 @@ public struct Match {
     public var _3: String { return self.groups[3] }
     
     public var groups: [String] {
-        let ranges = (0..<self.result.numberOfRanges).map { self.result.rangeAt($0) }
+        let ranges = (0..<self.result.numberOfRanges).map { self.result.range(at: $0) }
         return ranges.map {
             (self.target as NSString).substring(with: $0)
         }
