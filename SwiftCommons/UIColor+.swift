@@ -13,7 +13,7 @@ public extension UIColor {
     
     public class func fromHex(_ hex: String) -> UIColor? {
         
-        if hex.characters.count != 6 {
+        if hex.count != 6 {
             return nil
         }
         

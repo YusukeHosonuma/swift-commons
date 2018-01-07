@@ -165,14 +165,14 @@ extension Regex: RegexMatcher {
     }
     
     public func matches(_ target: String) -> [Match] {
-        let range = NSRange(location: 0, length: target.characters.count)
+        let range = NSRange(location: 0, length: target.count)
         return self.regex.matches(in: target, range: range).map {
             Match(target: target, result: $0)
         }
     }
     
     public func replace(in source: String, to: String) -> String {
-        let range = NSRange(location: 0, length: source.characters.count)
+        let range = NSRange(location: 0, length: source.count)
         return self.regex.stringByReplacingMatches(in: source, range: range, withTemplate: to)
     }
 }
@@ -197,7 +197,7 @@ public struct Match {
     public var _3: String { return self.groups[3] }
     
     public var groups: [String] {
-        let ranges = (0..<self.result.numberOfRanges).map { self.result.rangeAt($0) }
+        let ranges = (0..<self.result.numberOfRanges).map { self.result.range(at: $0) }
         return ranges.map {
             (self.target as NSString).substring(with: $0)
         }
