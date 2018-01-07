@@ -165,14 +165,14 @@ extension Regex: RegexMatcher {
     }
     
     public func matches(_ target: String) -> [Match] {
-        let range = NSRange(location: 0, length: target.characters.count)
+        let range = NSRange(location: 0, length: target.count)
         return self.regex.matches(in: target, range: range).map {
             Match(target: target, result: $0)
         }
     }
     
     public func replace(in source: String, to: String) -> String {
-        let range = NSRange(location: 0, length: source.characters.count)
+        let range = NSRange(location: 0, length: source.count)
         return self.regex.stringByReplacingMatches(in: source, range: range, withTemplate: to)
     }
 }

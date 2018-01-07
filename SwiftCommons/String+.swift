@@ -33,22 +33,15 @@ public func * (left: String, right: Int) -> String {
 public extension String {
     
     public subscript(i: Int) -> String {
-        let range = characters.index(startIndex, offsetBy: i)..<characters.index(startIndex, offsetBy: i + 1)
-        return substring(with: range)
+        let start = index(startIndex, offsetBy: i)
+        let end   = index(startIndex, offsetBy: i + 1)
+        return String(self[start..<end])
     }
     
     public subscript(range: Range<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: range.lowerBound)
-        let end   = characters.index(startIndex, offsetBy: range.upperBound)
-        return substring(with: start..<end)
-    }
-}
-
-// property
-public extension String {
-    
-    public var length: Int {
-        return characters.count
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end   = index(startIndex, offsetBy: range.upperBound)
+        return String(self[start..<end])
     }
 }
 
@@ -57,29 +50,6 @@ public extension String {
     
     public func with<T>(_ value: T) -> (String, T) {
         return (self, value)
-    }
-    
-    public func map<T>(_ f: (String) -> T) -> [T] {
-        return self.characters.map { (c: Character) -> T in
-            let s = String(c)
-            return f(s)
-        }
-    }
-    
-    public func filter(_ f: (String) -> Bool) -> String {
-        let result = self.characters.filter { (c: Character) -> Bool in
-            let s = String(c)
-            return f(s)
-        }
-        return String(result)
-    }
-    
-    public func reduce<T>(_ initial: T, f: (T, String) -> T) -> T {
-        let result = self.characters.reduce(initial) { (r: T, c: Character) -> T in
-            let s = String(c)
-            return f(r, s)
-        }
-        return result
     }
     
     public func equalsIgnoreCase(_ string: String) -> Bool {
@@ -93,16 +63,16 @@ public extension String {
         return matches.count > 0
     }
     
-    public func head(_ length: Int) -> String {
-        return (length > self.length) ? self : self[0..<length]
+    public func head(_ count: Int) -> String {
+        return (count > self.count) ? self : self[0..<count]
     }
     
-    public func tail(_ length: Int) -> String {
-        if (length > self.length) {
+    public func tail(_ count: Int) -> String {
+        if (count > self.count) {
             return self
         } else {
-            let from = self.length - length
-            let to   = from + length
+            let from = self.count - count
+            let to   = from + count
             return self[from..<to]
         }
     }
@@ -115,10 +85,6 @@ public extension String {
         return tail(1)
     }
     
-    public func reverse() -> String {
-        return String(self.characters.reversed())
-    }
-    
     public func remove(_ string: String) -> String {
         return self.replacingOccurrences(of: string, with: "")
     }
@@ -128,11 +94,11 @@ public extension String {
     }
     
     public func swapcase() -> String {
-        let result = self.characters.map { (c: Character) -> Character in
+        let result = self.map { (c: Character) -> Character in
             let s = String(c)
             let l = s.lowercased()
             let u = s.uppercased()
-            return (s == l) ? u.characters.first! : l.characters.first!
+            return (s == l) ? u.first! : l.first!
         }
         return String(result)
     }
@@ -167,11 +133,11 @@ public extension String {
     
     public func mask() -> String {
         let mask = Character("*")
-        return String(repeating: String(mask), count: self.length)
+        return String(repeating: String(mask), count: self.count)
     }
 
     public func mask(_ mask: String) -> String {
-        return mask * self.length
+        return mask * self.count
     }
     
     public func maskHead(count: Int) -> String {
@@ -179,11 +145,11 @@ public extension String {
     }
 
     public func maskHead(_ mask: String, count: Int) -> String {
-        guard count < self.length else {
+        guard count < self.count else {
             return self.mask()
         }
         let mask = Character(mask)
-        return String(repeating: String(mask), count: count) + self[count..<self.length]
+        return String(repeating: String(mask), count: count) + self[count..<self.count]
     }
     
     public func maskTail(count: Int) -> String {
@@ -191,11 +157,11 @@ public extension String {
     }
     
     public func maskTail(_ mask: String, count: Int) -> String {
-        guard count < self.length else {
+        guard count < self.count else {
             return self.mask()
         }
         let mask = Character(mask)
-        return self[0..<(self.length - count)] + String(repeating: String(mask), count: count)
+        return self[0..<(self.count - count)] + String(repeating: String(mask), count: count)
     }
     
     public func urlEncode() -> String {
@@ -207,7 +173,7 @@ public extension String {
     }
     
     func isDigitOnly() -> Bool {
-        return self.characters.all { $0.isDigit }
+        return self.all { $0.isDigit }
     }
     
     /**

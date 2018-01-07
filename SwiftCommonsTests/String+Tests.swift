@@ -59,17 +59,6 @@ class String_Tests: XCTestCase {
     }
     
     // MARK: -
-    // MARK: property
-
-    func test_length() {
-        XCTAssertEqual("Hello".length, 5)
-        XCTAssertEqual("あいうえお".length, 5)
-        XCTAssertEqual("🍎🍊🍌🍇🍉".length, 5)
-        XCTAssertEqual("\u{E9}".length, 1) // // é
-        XCTAssertEqual("\u{65}\u{301}".length, 1) // e followed by ́
-    }
-    
-    // MARK: -
     // MARK: method
     
     func test_with() {
@@ -82,30 +71,6 @@ class String_Tests: XCTestCase {
         let pair = "key".with(nilString)
         XCTAssertEqual(pair.0, "key")
         XCTAssertNil  (pair.1)
-    }
-    
-    func test_map() {
-        
-        XCTAssertEqual(
-            "Hello".map{ "[" + $0 + "]" }.joined(separator: ""),
-            "[H][e][l][l][o]")
-
-        XCTAssertEqual(
-            "12345".map{ Int($0) ?? 0 }.reduce(0, +) , 15)
-    }
-    
-    func test_filter() {
-        
-        XCTAssertEqual(
-            "foo1baz2".filter{ Int($0) != nil },
-            "12")
-    }
-    
-    func test_reduce() {
-        
-        XCTAssertEqual(
-            "Hello".reduce(""){ $0.tail(1) == $1 ? $0 : $0 + $1 },
-            "Helo")
     }
 
     func test_equalsIgnoreCase() {
@@ -149,8 +114,8 @@ class String_Tests: XCTestCase {
     }
     
     func test_reverse() {
-        XCTAssertEqual("Hello".reverse(), "olleH")
-        XCTAssertEqual("".reverse(), "")
+        XCTAssertEqual(String("Hello".reversed()), "olleH")
+        XCTAssertEqual(String("".reversed()), "")
     }
     
     func test_remove() {
