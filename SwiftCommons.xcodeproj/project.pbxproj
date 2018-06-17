@@ -153,6 +153,7 @@
 		7025D0341B8CA06A00D5C982 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				70F5A85A1C00D9BC00D6736B /* Debug.swift */,
 				708E18EF1B8B769C00B11067 /* UIColor+.swift */,
 				7025D0371B8CA09E00D5C982 /* UIView+.swift */,
 				702B56181B8F5EE10019617B /* UIViewController+.swift */,
@@ -277,7 +278,6 @@
 		70F5A8591C00D9A800D6736B /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				70F5A85A1C00D9BC00D6736B /* Debug.swift */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
