@@ -45,6 +45,7 @@
 		70F7F5221BE51C1A00353E28 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F7F51E1BE51C1A00353E28 /* SampleView.xib */; };
 		70F7F5231BE51C3200353E28 /* ResourcesInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7F5181BE51BD100353E28 /* ResourcesInitializable.swift */; };
 		70F7F5251BE51C6B00353E28 /* ResourcesInitializableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7F5241BE51C6B00353E28 /* ResourcesInitializableTests.swift */; };
+		E544FBB320D67BB700BC3685 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544FBB220D67BB700BC3685 /* Foo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		70F7F51D1BE51C1A00353E28 /* SampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		70F7F51E1BE51C1A00353E28 /* SampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		70F7F5241BE51C6B00353E28 /* ResourcesInitializableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesInitializableTests.swift; sourceTree = "<group>"; };
+		E544FBB220D67BB700BC3685 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,7 +265,6 @@
 		70C0A2A41E2A5AA30072D72D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				70F5A85A1C00D9BC00D6736B /* Debug.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				70F0F4DD1C0962470041F07A /* MutableArray+.swift */,
 				7069A9D11E267B4E0008CE95 /* Character+.swift */,
@@ -279,6 +280,7 @@
 		70F5A8591C00D9A800D6736B /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				E544FBB220D67BB700BC3685 /* Foo.swift */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -422,6 +424,7 @@
 				708E18EB1B8B6E5200B11067 /* String+.swift in Sources */,
 				702B56191B8F5EE10019617B /* UIViewController+.swift in Sources */,
 				70F7F5191BE51BD100353E28 /* ResourcesInitializable.swift in Sources */,
+				E544FBB320D67BB700BC3685 /* Foo.swift in Sources */,
 				708E18F01B8B769C00B11067 /* UIColor+.swift in Sources */,
 				7025D02B1B8B8A1E00D5C982 /* Functions.swift in Sources */,
 				70F0F4DE1C0962470041F07A /* MutableArray+.swift in Sources */,
