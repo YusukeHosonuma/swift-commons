@@ -263,6 +263,7 @@
 		70C0A2A41E2A5AA30072D72D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				70F5A85A1C00D9BC00D6736B /* Debug.swift */,
 				708E18E11B8B50E400B11067 /* Array+.swift */,
 				70F0F4DD1C0962470041F07A /* MutableArray+.swift */,
 				7069A9D11E267B4E0008CE95 /* Character+.swift */,
